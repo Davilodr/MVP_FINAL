@@ -1,0 +1,18 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+        
+   <div class="b-per">
+        <div>
+           <button class="bpc"><a href="{% url 'BuscarPersonalCC' %}"><img src="{% static 'assets/img/buscar.ico' %}" alt=""> - PersonalCC</a></button>
+           <p> - Buscar Personal De Control Central</p>
+        </div>
+        <div>    
+            <button class="bpd"> <a href="{% url 'BuscarPersonalDXTV' %}"><img src="{% static 'assets/img/buscar.ico' %}" alt=""> - PersonalDXTV</a></button>
+            <p> - Buscar Personal De DXTV</p>
+        </div>
+   </div>
+
+{% endblock contenidoQueCambia %}

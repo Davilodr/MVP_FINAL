@@ -1,0 +1,211 @@
+01:12:53	Joel Díaz Jirak:	buenas noches
+01:13:10	Emanuel Forbitti:	buenas
+01:13:24	Gino Frigoni:	💪
+01:13:31	[Tutor] Esteban Acevedo:	¡Buenas noches!
+01:14:56	santiago perez huerta:	buenas
+01:16:48	Luciano Mellone:	Buenass
+01:21:29	Juan Guzman:	si perfecto
+01:21:30	Nahuel Nogueira:	Si!
+01:21:31	Alexander Cruz:	si
+01:21:31	Joel Díaz Jirak:	si si
+01:21:31	ERICA ASTUDILLO:	si
+01:21:32	Gaston Burela:	si si
+01:21:33	Yessica Roser:	si
+01:21:34	Alan Minon:	si joya
+01:21:37	Ignacio Gomez poviña:	como cuando da diferentes permisos
+01:21:39	Pedro Ramos:	si si se entiende
+01:30:14	David Ramirez:	Buenas noches
+01:37:50	Valentina Arias:	en la variable psw la contraseña sí está en texto? si yo le hiciera un print me la mostraría?
+01:44:12	Gaston Burela:	para crear el usuario?
+01:44:16	Gaston Burela:	como hariamos
+01:47:06	Adrian Pozzi:	del forms del django?
+01:47:09	Adan Prinsich:	forms
+01:47:10	Lorenzo Monti Azpiazu:	formulario
+01:47:11	Gaston Burela:	dekl form de django
+01:47:12	Nahuel Nogueira:	del creationform
+01:47:52	Adrian Pozzi:	TIEMBLLA IGNACIO (?)
+01:48:45	Nahuel Nogueira:	Si!
+01:48:46	Lorenzo Monti Azpiazu:	bien
+01:48:46	Gustavo Tula:	si
+01:48:46	David Ramirez:	si
+01:48:49	Lucas Piccolini:	Si
+01:48:53	Gustavo Tula:	yep
+01:49:13	Lorenzo Monti Azpiazu:	argumento
+01:49:18	Leandro Gabriel Villalba:	no esta tomando la password
+01:49:19	Lorenzo Monti Azpiazu:	falta
+01:49:24	Lorenzo Monti Azpiazu:	en la urls
+01:49:59	Gaston Burela:	como que esperaba un parámetro y recibió 2
+01:50:10	Gaston Burela:	la función login
+01:51:05	Lucas Piccolini:	la de arriba se llama igual
+01:51:46	Gino Frigoni:	como una recursividad en loop
+01:52:06	Gaston Burela:	se esta llamando a si misma!! jajaja
+01:52:08	Gustavo Tula:	dont repeat urself?
+01:52:44	Gaston Burela:	ese es el inicio.html
+01:53:01	Gaston Burela:	traer el mensaje
+01:53:01	Nahuel Nogueira:	agregar ese saludo
+01:53:02	Leandro Gabriel Villalba:	elcontexto
+01:53:04	Gaston Burela:	pasarselo
+01:53:05	Ignacio Gomez povina:	agregar el saludo
+01:53:06	Alan Minon:	contex
+01:53:08	Gaston Burela:	por contexto
+01:53:44	Gustavo Tula:	{% if login %}
+01:55:34	Nahuel Nogueira:	Si, se entiende
+01:55:38	David Ramirez:	si
+01:56:02	Gino Frigoni:	mas formularios... jajaja
+02:00:19	Gaston Burela:	solo el usuario se guarda?
+02:01:56	David Ramirez:	url
+02:01:56	Ignacio Gomez povina:	url
+02:01:56	Nahuel Nogueira:	registrar la url
+02:02:00	Lorenzo Monti Azpiazu:	urls
+02:02:15	Gaston Burela:	solo el username guardamos ahi?
+02:05:42	ERICA ASTUDILLO:	antonella
+02:05:56	Alejandro Izquierdo:	jaja
+02:06:32	Nahuel Nogueira:	Si!
+02:06:37	David Ramirez:	si
+02:06:39	Emanuel Forbitti:	sisi
+02:06:40	Lorenzo Monti Azpiazu:	si
+02:06:44	Gaston Burela:	pero no entendi
+02:06:48	Gaston Burela:	la password
+02:06:57	Gaston Burela:	cuando creamos,
+02:07:00	Gaston Burela:	guardamos el usuario
+02:07:05	Gaston Burela:	y no guardamos la pass
+02:07:07	Gaston Burela:	en ningún lado
+02:08:25	Gaston Burela:	entiendo. solo que no lo vi en el código
+02:08:39	Gino Frigoni:	Claro, pero no me queda claro donde la manipulo? desde el formulario al views.py
+02:09:10	Gaston Burela:	ahi esta. ahora entendí. solo que recuperamos el usename
+02:09:24	Gaston Burela:	para mostrarlo después en el mensaje
+02:09:25	Nahuel Nogueira:	Lo manipula UserCreationForm directamente no?
+02:09:26	Gino Frigoni:	ta, es magia django con clases
+02:10:04	Gaston Burela:	gracias profe
+02:10:08	Hugo Parra:	si
+02:10:08	Leandro Gabriel Villalba:	quedo mas claro
+02:10:10	Lucas Piccolini:	Si se entiende
+02:10:14	Alan Minon:	digamos que si
+02:10:18	Lorenzo Monti Azpiazu:	se entiende
+02:10:20	Pedro Ramos:	claro ahora si, se entiende mejor
+02:10:31	Nahuel Nogueira:	Si, se entiende!
+02:12:31	Nahuel Nogueira:	.as_view
+02:12:32	Leandro Gabriel Villalba:	solo habría que crear el template
+02:12:41	David Ramirez:	.as_view
+02:12:41	Ignacio Gomez povina:	as_view
+02:14:54	Alejandro Izquierdo:	que paso con djaneiro
+02:17:12	[Tutor] Esteban Acevedo:	Encontré uno mejor: Django Support
+02:17:48	[Tutor] Esteban Acevedo:	es nuevo, pero es un combinación de Djaneiro y Django
+02:18:30	Gaston Burela:	desues cambiale el nombre a logout
+02:19:34	Gaston Burela:	habría q cambiar el nombe a logout
+02:19:40	Gaston Burela:	al lado del boton
+02:19:45	Gaston Burela:	linea 43
+02:19:45	Nahuel Nogueira:	en el padre tenes que cambiar el nombre al lado del boton
+02:19:46	Gaston Burela:	34
+02:19:50	Gaston Burela:	linea 34
+02:20:52	David Ramirez:	profe se debería solo poder usar los botones de crear y eso solo si estas logueado sino debería no mostrarse
+02:21:14	David Ramirez:	cursos
+02:22:26	Lorenzo Monti Azpiazu:	no
+02:22:33	David Ramirez:	todo bien por ahora
+02:22:33	Nahuel Nogueira:	Todo claro, se super entendió
+02:22:34	Hugo Parra:	si
+02:22:37	Leandro Gabriel Villalba:	quedo claro
+02:22:39	Alan Minon:	despuel lo vuelvo  ver en 0.5X
+02:22:44	Fabrizio Marina:	A comparación de lo que veníamos viendo, es una dulzura esto
+02:22:58	Alejandro Izquierdo:	🤣
+02:23:09	Ignacio Gomez povina:	vamos a ver algo de fixtures?
+02:23:23	Ignacio Gomez povina:	nono
+02:23:23	Alejandro Izquierdo:	prode ?
+02:23:26	[Tutor] Christian Toledo:	no Ignacio
+02:23:27	Ignacio Gomez povina:	para envolver funciones
+02:23:28	Leandro Gabriel Villalba:	messirve
+02:23:32	[Tutor] Christian Toledo:	fixtures de test
+02:23:32	Ignacio Gomez povina:	oka
+02:23:33	Gaston Burela:	jajajajaja
+02:23:40	Fabrizio Marina:	anulo mufa
+02:23:41	Adrian Pozzi:	Forms.model lo vamos a ver profe?
+02:23:41	Fabrizio Marina:	jajaja
+02:25:08	Ignacio Gomez povina:	porque vi que se pueden usar fixtures para limitar el acceso a ciertas views
+02:25:23	[Tutor] Christian Toledo:	ahí me mataste
+02:25:28	[Profe] Mauricio Cuello:	VOLVEMOS 23:00
+VOLVEMOS 23:00
+VOLVEMOS 23:00
+02:26:21	Ignacio Gomez povina:	ni idea entonces
+02:26:55	Bruno Bini:	reinicio profe
+02:26:58	Bruno Bini:	que se me buggeo el audio
+02:27:01	Gino Frigoni:	Profe, me confunde un poco el manejo de formularios con clases. Cuando quiero crear un text área en ves de un input. O cambiarle el tamaño. Como genera todo automatico quedé tecleando...
+02:38:48	ERICA ASTUDILLO:	estas hablando?
+02:39:03	Nahuel Nogueira:	ahora si
+02:39:03	ERICA ASTUDILLO:	si ahora si
+02:39:03	Fabrizio Marina:	ahora si
+02:39:04	[Tutor] Christian Toledo:	si
+02:39:05	Hugo Parra:	si ya
+02:39:13	Fabrizio Marina:	Erica tiene poderes psíquicos jaja
+02:39:17	ERICA ASTUDILLO:	siempre tengo problema con el audio, yo, por eso ...
+02:39:31	ERICA ASTUDILLO:	jeje
+02:42:02	Ignacio Gomez povina:	ESO! es un fixture
+02:42:06	Ignacio Gomez povina:	jajaja
+02:47:22	Alan Minon:	si
+02:47:24	Nahuel Nogueira:	si, se entiende!
+02:47:34	Ignacio Gomez povina:	creo que cague el nombre yo
+02:47:37	Ignacio Gomez povina:	pero a eso me referia
+02:47:50	Alejandro Izquierdo:	el nombre se lo puso ignacio
+02:51:21	Ignacio Gomez povina:	j3j0
+02:52:47	Gaston Burela:	creo q lleva 2 ff
+02:52:55	Gaston Burela:	ahi va
+02:54:37	ERICA ASTUDILLO:	la deco va antes de la función,
+02:54:53	ERICA ASTUDILLO:	okgracias
+02:54:58	David Ramirez:	si
+02:55:01	Nahuel Nogueira:	Si, se entendió
+02:55:03	Lorenzo Monti Azpiazu:	si
+02:55:05	David Ramirez:	y para staff hay mixin
+02:55:06	David Ramirez:	?
+02:55:13	ERICA ASTUDILLO:	yo te iba a pedir repaso de los perfiles
+02:55:18	David Ramirez:	ok l busco
+02:55:49	Juliana Blanc:	veamos ejemplos de proyectos finales jajaj
+02:55:54	[Profe] Mauricio Cuello:	https://app.sli.do/event/3oiKEbUVqGxRNaJfEHAvWX
+02:57:15	Fabrizio Marina:	1 y 3
+02:57:15	Ignacio Gomez povina:	las 3
+02:57:16	Fabrizio Marina:	jaja
+02:57:18	ERICA ASTUDILLO:	la 3
+02:58:37	Alan Minon:	volvió el grillo
+03:00:08	Alejandro Izquierdo:	los tutores están buscando videos tambien
+03:00:58	Juliana Blanc:	ahora nos muestra un e-commerce y la quedo jajaja
+03:01:04	[Tutor] Esteban Acevedo:	jjaja
+03:02:20	Juliana Blanc:	profe demasiado suspenso
+03:02:49	Alejandro Izquierdo:	Netflix.com
+03:02:54	Juliana Blanc:	JAJAJA
+03:02:54	Fabrizio Marina:	Vengo a hablarles del la iniciativa APPLE
+03:02:57	Fabrizio Marina:	jajaj
+03:03:05	Juliana Blanc:	el mismísimo git hub
+03:03:13	Fabrizio Marina:	tal cual jajaa
+03:03:38	Alejandro Izquierdo:	hay que poner esa voz en el proyecto ? jaja
+03:03:54	Hugo Parra:	😂
+03:06:23	Adrian Pozzi:	quemadísimos los 3
+03:06:24	Adrian Pozzi:	jajaja
+03:06:39	Alejandro Izquierdo:	jajaj
+03:06:46	Alejandro Izquierdo:	algo fumaron
+03:06:59	[Tutor] Andrés Javier Nazzari:	ah esos la tenian re clara igual aajja xD
+03:06:59	Juliana Blanc:	hasta dark mode metieron
+03:07:09	Adrian Pozzi:	si ya tienen JavaScript encima
+03:07:11	Juliana Blanc:	yo de pedo se como setearlo en el celu
+03:07:21	ERICA ASTUDILLO:	la grabaron después de largas horas de codear eh, estaban de  madrugada esos chicos, ya...
+03:07:32	Adrian Pozzi:	esto lo hicieron en un mes tb?
+03:07:33	Tiago Lo Bretto:	No vale que entren al curso empleados de Google
+03:07:37	Fabrizio Marina:	dijo "el coso"?
+03:07:39	Juan Guzman:	atada la tenian
+03:07:42	Juliana Blanc:	JAJAJAJAJA
+03:08:03	[Tutor] Andrés Javier Nazzari:	muy buena la verdad
+03:08:30	Leandro Gabriel Villalba:	muy buena elaboracion
+03:08:30	Adrian Pozzi:	esa pag con forms de django no la hicieron
+03:08:50	Juan Guzman:	impecable JAJAJAJ
+03:09:16	Ignacio Gomez povina:	re completo
+03:09:21	Fabrizio Marina:	'I'm the fucking admin' no es muy formal que digamos
+03:09:28	Adrian Pozzi:	jajaja si
+03:10:16	ERICA ASTUDILLO:	se entiende profe con la voz, en relación a loque hicieron no queda bueno
+03:11:17	[Tutor] Andrés Javier Nazzari:	nos vemos!!
+03:11:20	Fabrizio Marina:	faaa ya 3 meses pasaron
+03:11:23	Juan Guzman:	dale perfecto! nos vemos el jueves
+03:11:24	Joel Díaz Jirak:	muchas gracias, nos vemos
+03:11:24	[Tutor] Christian Toledo:	Buenas noches!
+03:11:26	Fabrizio Marina:	nos vemos el jueves
+03:11:27	Adriana Barderi:	nos vemos! gracias
+03:11:28	Lucas Piccolini:	Nos vemos!
+03:11:28	Nahuel Nogueira:	Hasta el jueves!
+03:11:28	ERICA ASTUDILLO:	ok, b noches
+03:11:29	Fabrizio Marina:	chau chua

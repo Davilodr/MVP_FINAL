@@ -1,0 +1,17 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+        
+    <form method="POST">{% csrf_token %}
+
+        <p>Está seguro que desea eliminar el registro?</p>
+
+        <button type="submit">Confirmar <img src="{% static 'assets/img/check.ico' %}" alt=""></button>
+           
+    </form>
+    
+    <button><a href="{% url 'ListaPersonal' %}">Cancelar <img src="{% static 'assets/img/cancel.ico' %}" alt=""></a></button> 
+
+{% endblock contenidoQueCambia %}

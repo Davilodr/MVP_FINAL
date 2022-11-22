@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% load static %}
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport", initial-scale=1.0>
+        <link rel="icon" type="image/x-icon" href="{% static 'assets/img/favicon.ico' %}" />
+        <title>{% block title %}Planilla Control{% endblock title %}</title>
+        <link href="{% static 'css/stylesnew.css' %}" rel="stylesheet"/>
+    </head>
+    <body>
+        <div class="container" id="grid-1">
+            <header class="header" id="grid-2">
+                <div class="Logo">
+                    <h1>Planilla 
+                        <span>Control</span>
+                    </h1>
+                </div>
+                <nav class="menu">
+
+                    <a class="home" href="{% url 'index' %}"><img clas="home-ico" src="{% static 'assets/img/casa.png' %}" alt="">Home</a>
+                    <a href="{% url 'About' %}">About</a>
+                    <a href="{% url 'Registrar' %}">Register</a>
+                    
+                
+                </nav>
+                {% if user.is_authenticated %}       
+                    <div class="container-perfil">
+                        <h3><a class="cls" href="{% url 'logout' %}">Cerrar Sesión</a></h3>
+                        <img class="ava" src="{{url}}" width="25%" alt="avatar">
+                        <a href="{% url 'editarperfil' %}"><img src="{% static 'assets/img/editar.ico' %}" alt=""></a>
+                        <h4>Bienvenido {{user.username}}</h4>
+                        
+                    </div>
+                {% else %}
+                    <a class="log" href="{% url 'login' %}">Login<img clas="home-ico" src="{% static 'assets/img/usuario.ico' %}" alt=""></a>    
+                
+                {% endif %}
+                    
+        
+            </header>
+            <main class="main" id="grid-3">
+                
+                <div class="ban">
+                    <img src="{% static 'assets/img/banner.png' %}" alt="">
+                </div>
+
+                <div class="nav">
+                    <nav>
+                        <a href="{% url 'ListaPersonal' %}">Lista Personal</a>
+                        <a href="{% url 'ListaDias' %}">Lista Dias Trabajados</a>
+                        <a href="{% url 'ListaHoras' %}">Lista Horas Trabajadas</a>
+                        <a href="{% url 'BuscarDatos' %}">Buscar</a>
+                        <a href="{% url 'CrearDatos' %}">Cargar datos</a>
+                    </nav>
+                   
+                </div>
+                
+                <div class="bc-main">
+                    
+                    {% block contenidoQueCambia %}
+                    <div class="d-main">
+                        <h2>Esta Aplicacion fue diseñada para automatizar el Control de dias y horas.</h2>
+                    </div>
+                    <div>
+                        <p class="p-main">Aquí podrá cargar tanto sus días como horas trabajadas según le interese. Agregar a una base de datos SQL los mismos para poder registrarla, verla cuando asi lo necesite. Esto viene a mejorar el flujo de información tanto para "Empleados" como "RRHH".</p>
+                        
+                    </div>
+                    <h4 class="reg">{{mensaje}}</h4>
+                    {% endblock contenidoQueCambia %}
+                    
+                </div>
+                <div class="chat">
+                    <h2>chat</h2>
+                </div>
+            </main>     
+                
+            <footer class="footer" id="grid-4">
+                <div class="foot">algo vamos a poner aca</div>
+            </footer>
+        </div>
+        
+    </body>
+
+    
+
+</html>

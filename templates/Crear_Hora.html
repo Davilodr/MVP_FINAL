@@ -1,0 +1,15 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+        
+    <form action="{% url 'CrearHoras' %}" method="POST">{% csrf_token %}
+
+        {{form.as_p}}
+        
+        <input class="act" type="submit" value="Cargar"/>
+
+    </form>
+
+{% endblock contenidoQueCambia %}

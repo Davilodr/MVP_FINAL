@@ -1,0 +1,21 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+
+{% block contenidoQueCambia %}
+
+    <h2>Datos de Personal Control Central</h2>
+
+    <h4 style="color:rgb(197, 86, 1)">
+        Nombre: {{DetaileCC.nombre}}<br> 
+        Apellido: {{DetaileCC.apellido}}<br> 
+        Dni: {{DetaileCC.dni}}<br> 
+        email: {{DetaileCC.email}}<br>
+        telefono: {{DetaileCC.telefono}}<br>
+        direccion: {{DetaileCC.direccion}}<br>
+    </h4>
+
+    
+
+{% endblock contenidoQueCambia %}

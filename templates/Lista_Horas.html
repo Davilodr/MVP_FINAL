@@ -1,0 +1,24 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+
+{% block contenidoQueCambia %}
+
+    <h2>Lista de Horas</h2>
+
+    <ul>
+        
+        {% for horas in ListHoras %}
+            <li class="lh">
+                
+                {{horas.dia_actual}}- dia de carga<br>
+                {{horas.hora_trabajada}} -horas trabajadas<br>
+                {{horas.personal1.nombre}}- nombre del personal<br>
+                <hr class="hr-h" style= "width:75px">  
+            </li>
+        {% endfor %}
+            
+    </ul>
+
+{% endblock contenidoQueCambia %}

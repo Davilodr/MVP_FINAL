@@ -1,0 +1,19 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+        
+   <div class="l-per">
+        
+        <div>
+            <button class="cpd"><a href="{% url 'ListaPersonalDXTV' %}"><img src="{% static 'assets/img/editar.ico' %}" alt=""> - Personal DXTV</a></button>
+            <p> -Lista Personal DXTV</p>
+        </div>
+        <div>
+            <button class="cpc"><a href="{% url 'ListaPersonalCC' %}"><img src="{% static 'assets/img/editar.ico' %}" alt=""> - Personal CC</a></button>
+            <p> -Lista Personal Control Central</p>
+        </div>
+   </div>
+
+{% endblock contenidoQueCambia %}

@@ -1,0 +1,18 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+        
+    <form method="POST" enctype="multipart/form-data">{% csrf_token %}
+
+        {{avatar.as_p}}
+        
+
+        {{mensaje}}
+
+        <input type="submit" value="Actualizar"/>
+
+    </form>
+
+{% endblock contenidoQueCambia %}

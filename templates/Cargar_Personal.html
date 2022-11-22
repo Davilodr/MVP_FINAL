@@ -1,0 +1,23 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+        
+   <div class="c-per">
+        
+        <div>
+            <button class="cp"><a href="{% url 'CreaPersonalDXTV' %}"><img src="{% static 'assets/img/editar.ico' %}" alt=""> - Personal  DXTV</a></button>
+            <p>Acá se cargan Personal DXTV</p>
+        </div>
+        <div>
+            <button class="cp"><a href="{% url 'CreaPersonalCC' %}"><img src="{% static 'assets/img/editar.ico' %}" alt=""> - Personal CC</a></button>
+            <p>Acá se cargan Personal CC</p>
+        </div>
+        <div>
+            <button class="cp"><a href="{% url 'CreaSupervisor' %}"><img src="{% static 'assets/img/editar.ico' %}" alt=""> - Supervisor</a></button>
+            <p>Acá se carga Supervisor</p>
+        </div>
+   </div>
+
+{% endblock contenidoQueCambia %}

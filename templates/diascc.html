@@ -1,0 +1,21 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+
+{% block contenidoQueCambia %}
+
+    <h2>Lista de Horas</h2>
+
+    <ul>
+        
+        {% for dia in diast%}
+            <li class="lh">
+                {{dia.dia_trabajado}} 
+                
+            </li>
+        {% endfor %}
+            
+    </ul>
+
+{% endblock contenidoQueCambia %}

@@ -1,0 +1,28 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+
+{% block contenidoQueCambia %}
+
+    <h2>Lista de Personal</h2>
+
+    <ul>
+        
+        {% for Persona in PerDXTV %}
+           
+                <a class = "lisD" href="{% url 'VerPersonalDXTV' Persona.id %}">
+                    <h4>{{Persona.nombre}} - {{Persona.apellido}}</h4>  <button class ="ed">
+                                                                            <a href="{% url 'UpdatePersonalDXTV' Persona.id %}"><img src="{% static 'assets/img/editar.ico' %}" alt=""></a>
+                                                                        </button>
+                                                                        <button class="del">
+                                                                            <a href="{% url 'BorrarPerDXTV' Persona.id %}"><img src="{% static 'assets/img/papelera.ico' %}" alt=""></a>
+                                                                        </button>
+                
+           
+         
+        {% endfor %}
+            
+    </ul>
+
+{% endblock contenidoQueCambia %}

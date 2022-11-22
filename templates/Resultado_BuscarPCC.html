@@ -1,0 +1,23 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+
+{% block contenidoQueCambia %}
+        
+    
+    <h2 style="color:rgba(187, 72, 1, 0.845)">El resultado de su busqueda es:</h2>
+
+    <h4>Nombre: {{Personal.nombre}}</h4>
+    <h4>Apellido: {{Personal.apellido}}</h4>
+    <h4>Dni: {{Personal.dni}}</h4>
+    <h4>Email: {{Personal.email}}</h4>
+    <h4>Telefono: {{Personal.telefono}}</h4>
+    <h4>Dirección: {{Personal.direccion}}</h4>
+    
+    
+    
+    
+        
+  
+{% endblock contenidoQueCambia %}

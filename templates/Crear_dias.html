@@ -1,0 +1,17 @@
+
+{% extends 'index.html' %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+        
+    <form action="{% url 'CrearDias' %}" method="POST">{% csrf_token %}
+
+        {{forms}}<p>"año/mes/dia"</p>  
+        
+        <input class="act" type="submit" value="Cargar"/>
+
+    </form>
+    
+
+{% endblock contenidoQueCambia %}

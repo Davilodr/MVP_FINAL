@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+       {% load static %}
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>{%block title %} Planilla Control {%endblock%}</title>
+        <link rel="icon" type="image/x-icon" href="{% static 'assets/img/favicon.ico' %}" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+    </head>
+    <body id="page-top"> 
+        
+       
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+                    
+           <a class="navbar-brand js-scroll-trigger" href="#page-top">
+                {% if user.is_authenticated %}
+                    <h4 class="ses"><img src="{{url}}" width="30%" alt="avatar">
+                        <div class="bie">Bienvenido {{user.username}}
+                            <a href="{% url 'editarperfil' %}"><img src="{% static 'assets/img/editar.ico' %}" alt=""></a>
+                        </div>
+                    </h4>
+
+                    <h3 class="nav-item"><a class="cls" href="{% url 'logout' %}">Cerrar Sesión</a></h3>
+                {% else %}
+                    <h3 class="nav-item"><a class="ins" href="{% url 'login' %}">Iniciar Sesión</a></h3>
+                {% endif %}       
+            </a>
+                
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav">
+
+                    <li class="nav-item"><a href="{% url 'index' %}"><img clas="proxico" src="{% static 'assets/img/casa.ico' %}" alt="">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'ListaPersonal' %}">Lista de Personal</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'ListaDias' %}">Lista de días cargados</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'ListaHoras' %}">Lista de horas cargadas</a></li> 
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'BuscarDatos' %}">Buscar</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'CrearDatos' %}">Cargar Datos</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'Registrar' %}">Registrarse</a></li>
+                    <h2 class="abo"><a href="{% url 'About' %}">about</a></h2>
+                </ul>
+            </div>
+        </nav>
+        
+        <div class="container-fluid p-0">
+            
+            <section class="resume-section" id="about">
+                <div class="resume-section-content">
+                    <h1 class="mb-0">
+                        Planilla 
+                        <span class="text-primary">Control</span>
+                    </h1>
+                    {% block contenidoQueCambia %}
+                    <div class="subheading mb-5">
+                        Esta Aplicacion fue diseñada para automatizar el Control de dias y horas.
+                    </div>
+                    <p class="lead mb-5">Aquí podrá cargar tanto sus días como horas trabajadas según le interese. Agregar a una base de datos SQL los mismos para poder registrarla, verla cuando asi lo necesite. Esto viene a mejorar el flujo de información tanto para "Empleados" como "RRHH".</p>
+                    <h4 class="reg">{{mensaje}}</h4>
+                     {% endblock contenidoQueCambia %}
+                </div>
+            </section>
+            
+            
+    </body>
+    <footer>
+        
+    </footer>
+</html>

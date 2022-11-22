@@ -1,0 +1,15 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+        
+    <form action="{% url 'Registrar' %}" method="POST">{% csrf_token %}
+
+        {{FormularioRegistro.as_p}}
+        
+        <input class="act" type="submit" value="Registrar"/>
+
+    </form>
+
+{% endblock contenidoQueCambia %}

@@ -1,0 +1,22 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+        
+   <div class="c-dat">
+        <div>
+            <button class="cd"><a href="{% url 'CrearDias' %}"><img src="{% static 'assets/img/editar.ico' %}" alt=""> - Dias</a></button>
+            <p> - Acá se cargan los Dias Trabajados</p>
+        </div>
+        <div>
+            <button class="cp"> <a href="{% url 'CargarPersonalPage' %}"><img src="{% static 'assets/img/editar.ico' %}" alt=""> - Personal</a></button>
+            <p> - Acá se cargan Personal</p>
+        </div>
+       <div>
+            <button class="ch"> <a href="{% url 'CrearHoras' %}"><img src="{% static 'assets/img/editar.ico' %}" alt=""> - Horas</a></button>
+            <p> - Acá se cargan las Horas Trabajadas</p>
+        </div>
+   </div>
+
+{% endblock contenidoQueCambia %}

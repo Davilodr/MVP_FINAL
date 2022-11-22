@@ -1,0 +1,32 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+
+{% block contenidoQueCambia %}
+
+    <h2>Lista de Personal</h2>
+
+    <ul>
+        
+        {% for Persona in PerCC %}
+           
+                <a class = "lisD" href="{% url 'VerPersonalCC' Persona.id %}">
+                <h4>{{Persona.nombre}} - {{Persona.apellido}}</h4>  <button class ="ed">
+                                                                        <a href="{% url 'UpdatePersonalCC' Persona.id %}"><img src="{% static 'assets/img/editar.ico' %}" alt=""></a>
+                                                                    </button>
+                                                                    <button class="del">
+                                                                        <a href="{% url 'BorrarPerCC' Persona.id %}"><img src="{% static 'assets/img/papelera.ico' %}" alt=""></a>
+                                                                    </button>
+                                                                    
+                                                                    <div>
+                                                                        <button class="bpc"><a href="{% url 'filtrarD' Persona.id %}"><img src="{% static 'assets/img/buscar.ico' %}" alt=""> - PersonalCC</a></button>
+                                                                        <p> - Buscar Personal De Control Central</p>
+                                                                     </div>
+        
+        
+      {% endfor %}    
+            
+    </ul>
+
+{% endblock contenidoQueCambia %}

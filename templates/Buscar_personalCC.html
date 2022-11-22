@@ -1,0 +1,17 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+        
+    <form action="{% url 'BuscarP' %}" method="GET">{% csrf_token %}
+
+        <p>Ingrese Dni del "Personal" Buscado <input type="text" name="dni"></p><h5>{{mensaje}}</h5>
+
+        <input class="act" type="submit" value="Buscar">
+
+        
+
+    </form>
+
+{% endblock contenidoQueCambia %}

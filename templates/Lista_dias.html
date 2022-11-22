@@ -1,0 +1,28 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+
+{% block contenidoQueCambia %}
+
+    <h2>Lista de dias</h2>
+
+    <ul>
+        
+        {% for dias in diast %}
+            <li class= "lp">
+                
+                {{dias.dia_trabajado}}              <button class="del"> 
+                                                        <a href="{% url 'BorrarDias' dias.id %}"><img src="{% static 'assets/img/papelera.ico' %}" alt=""></a>
+                                                    </button> 
+                                                    <button class ="ed">
+                                                        <a href="{% url 'UpdateDias' dias.id %}"><img src="{% static 'assets/img/editar.ico' %}" alt=""></a>
+                                                    </button>
+            </li>           
+            
+        
+        {% endfor %}
+            
+    </ul>
+
+{% endblock contenidoQueCambia %}

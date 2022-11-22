@@ -1,0 +1,17 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+        
+    <form action="{% url 'CreaPersonalDXTV' %}" method="POST">{% csrf_token %}
+
+        {{personalform.as_p}}
+        {{userform.as_p}}
+        
+        
+        <input class="act" type="submit" value="Registrar"/>
+
+    </form>
+
+{% endblock contenidoQueCambia %}

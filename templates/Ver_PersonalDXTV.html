@@ -1,0 +1,20 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+
+{% block contenidoQueCambia %}
+
+    <h2>Datos de Personal DXTV</h2>
+   <h4 style="color:rgb(197, 86, 1)">
+        Nombre: {{DetaileDXTV.nombre}}<br> 
+        Apellido: {{DetaileDXTV.apellido}}<br> 
+        Dni: {{DetaileDXTV.dni}}<br> 
+        email: {{DetaileDXTV.email}}<br>
+        telefono: {{DetaileDXTV.telefono}}<br>
+        direccion: {{DetaileDXTV.direccion}}<br> 
+   </h4>
+
+    
+
+{% endblock contenidoQueCambia %}

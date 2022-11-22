@@ -1,0 +1,15 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+        
+    <form action="{% url 'login' %}" method="POST">{% csrf_token %}
+
+        {{FormularioLogin.as_p}}
+        
+        <input class="act" type="submit" value="Iniciar Seción"/>
+
+    </form>
+
+{% endblock contenidoQueCambia %}
