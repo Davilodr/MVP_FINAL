@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import Dias_trabajados
+from .models import Dias_trabajados, Horas_trabajadas
 
 
 
@@ -17,6 +17,8 @@ class Dias_Formulario(forms.ModelForm):
             )
         }
 
+
+
 class UpdateDia_Form(forms.ModelForm):
 
     class Meta:
@@ -30,6 +32,33 @@ class UpdateDia_Form(forms.ModelForm):
             )
         }
 
+class Horas_Formulario(forms.ModelForm):
+
+    class Meta:
+        model = Horas_trabajadas
+        fields = ('__all__')
+        labels = {'personal1':('Personal'),}
+        widgets ={
+            'hora_trabajada': forms.TextInput(
+                attrs={
+                    'placeholder': "Igrese Horas",
+                }
+            )
+        }
+        
+class Updatehoras_Form(forms.ModelForm):
+
+    class Meta:
+        model = Horas_trabajadas
+        fields = ('__all__')
+        labels = {'personal1':('Personal'),}
+        widgets ={
+            'hora_trabajada': forms.TextInput(
+                attrs={
+                    'placeholder': "Ingrese Horas",
+                }
+            )
+        }
     
 class PersonalFormulario(forms.Form):
 

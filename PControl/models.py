@@ -52,7 +52,7 @@ class Horas_trabajadas(models.Model):
     
     
     def __str__(self):
-        return f'{self.dia_actual} - {self.hora_trabajada} - {self.personal1.nombre}'
+        return f'{self.dia_actual} - Hora Trabajada:{self.hora_trabajada} - Personal:{self.personal1.nombre}'
     
 class Supervisor(models.Model):
     

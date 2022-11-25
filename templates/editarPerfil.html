@@ -4,10 +4,6 @@
 
 {% block contenidoQueCambia %}
 
-    <img class="ava" width="10%" src="{{url}}" alt="avatar">
-    
-    <a href="{% url 'EditarAvatar' %}"><img src="{% static 'assets/img/editar.ico' %}" alt=""></a>
-  
     <form method="POST" enctype="multipart/form-data">{% csrf_token %}
 
         {{editform.as_p}}

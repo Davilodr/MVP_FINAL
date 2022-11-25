@@ -1,28 +1,59 @@
 {% extends 'index.html' %}
 
 {% load static %}
-
+{% block title %}Lista Horas{% endblock title %}
+{% block head %}
+<link href="{% static 'css/stylestableD.css' %}" rel="stylesheet"/>          
+{% endblock head %}
 
 {% block contenidoQueCambia %}
+<nav class="nav-pager">
+  <ul class="pager">
+    {% if page_obj.has_previous %}
+                    <a href="?page=1">&laquo; first</a>
+                    <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                {% endif %}
 
-    <h2>Lista de dias</h2>
+                <span class="current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span>
 
-    <ul>
-        
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">next</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                {% endif %}
+    
+  </ul>
+</nav>
+<table class="table caption-top">
+    <caption></caption>
+    <thead>
+      <tr class="col-h">
+        <th scope="col">ID</th>
+        <th scope="col">Dia Trabajado</th>
+        <th scope="col">Nombre Personal</th>
+        <th scope="col">Borrar</th>
+        <th scope="col">Editar</th>
+      </tr>
+    </thead>
         {% for dias in diast %}
-            <li class= "lp">
-                
-                {{dias.dia_trabajado}}              <button class="del"> 
-                                                        <a href="{% url 'BorrarDias' dias.id %}"><img src="{% static 'assets/img/papelera.ico' %}" alt=""></a>
-                                                    </button> 
-                                                    <button class ="ed">
-                                                        <a href="{% url 'UpdateDias' dias.id %}"><img src="{% static 'assets/img/editar.ico' %}" alt=""></a>
-                                                    </button>
-            </li>           
-            
-        
+          
+        <tbody> 
+            <tr class="fil-d">
+              <td scope="row">{{dias.id}}</td>
+              <td>{{dias.dia_trabajado}}</td>
+              <td>{{dias.personal.nombre}}</td>
+              <td><button class="deld"> 
+                <a href="{% url 'BorrarDias' dias.id %}"><img src="{% static 'assets/img/papelera.ico' %}" alt=""></a>
+                </button></td>
+              <td><button class ="edd">
+                <a href="{% url 'UpdateDias' dias.id %}"><img src="{% static 'assets/img/editar.ico' %}" alt=""></a>
+                </button></td>
+            </tr>        
+        </tbody>
         {% endfor %}
+    </table>
             
-    </ul>
-
-{% endblock contenidoQueCambia %}
+    
+       
+{% endblock contenidoQueCambia %}           

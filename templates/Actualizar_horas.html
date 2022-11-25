@@ -5,11 +5,11 @@
 {% block contenidoQueCambia %}
         
     <form method="POST">{% csrf_token %}
-        
+
         {{editform}}
         
         <input class="act" type="submit" value="Actualizar"/>
 
     </form>
-    
+
 {% endblock contenidoQueCambia %}

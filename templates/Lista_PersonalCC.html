@@ -1,32 +1,68 @@
 {% extends 'index.html' %}
 
 {% load static %}
-
+{% block title %}Lista Personal{% endblock title %}
+{% block head %}
+<link href="{% static 'css/stylestableP.css' %}" rel="stylesheet"/>          
+{% endblock head %}
 
 {% block contenidoQueCambia %}
+<nav class="nav-pager">
+  <ul class="pager">
+    {% if page_obj.has_previous %}
+                    <a href="?page=1">&laquo; first</a>
+                    <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                {% endif %}
 
-    <h2>Lista de Personal</h2>
+                <span class="current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span>
 
-    <ul>
-        
-        {% for Persona in PerCC %}
-           
-                <a class = "lisD" href="{% url 'VerPersonalCC' Persona.id %}">
-                <h4>{{Persona.nombre}} - {{Persona.apellido}}</h4>  <button class ="ed">
-                                                                        <a href="{% url 'UpdatePersonalCC' Persona.id %}"><img src="{% static 'assets/img/editar.ico' %}" alt=""></a>
-                                                                    </button>
-                                                                    <button class="del">
-                                                                        <a href="{% url 'BorrarPerCC' Persona.id %}"><img src="{% static 'assets/img/papelera.ico' %}" alt=""></a>
-                                                                    </button>
-                                                                    
-                                                                    <div>
-                                                                        <button class="bpc"><a href="{% url 'filtrarD' Persona.id %}"><img src="{% static 'assets/img/buscar.ico' %}" alt=""> - PersonalCC</a></button>
-                                                                        <p> - Buscar Personal De Control Central</p>
-                                                                     </div>
-        
-        
-      {% endfor %}    
-            
-    </ul>
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">next</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                {% endif %}
+    
+  </ul>
+</nav>
+<table class="table caption-top">
+    <caption></caption>
+    <thead>
+      <tr class="col-h">
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido</th>
+        <th scope="col">Detalle Personal</th>
+        <th scope="col">Borrar</th>
+        <th scope="col">Editar</th>
+        <th scope="col">Dias Personal</th>
+      </tr>
+    </thead>
+        {% for Persona in perCC %}
+          
+        <tbody> 
+            <tr class="fil-d">
+                <td scope="row">{{Persona.nombre}}</td>
+                <td>{{Persona.apellido}}</td>
+                <td><button class ="ed">
+                        <a class = "lisD" href="{% url 'VerPersonalCC' Persona.id %}"><img src="{% static 'assets/img/detalle.png' %}" alt="Detalle"></a>
+                    </button>
+                </td>
+                <td><button class="deld"> 
+                        <a href="{% url 'BorrarPerCC' Persona.id %}"><img src="{% static 'assets/img/papelera.png' %}" alt="Borrar"></a>
+                    </button></td>
+                <td><button class ="edd">
+                        <a href="{% url 'UpdatePersonalCC' Persona.id %}"><img src="{% static 'assets/img/editar.png' %}" alt="Editar"></a>
+                    </button></td>
+                <td>
+                    <button class="deld">
+                        <a href="{% url 'filtrarD' Persona.id %}"><img src="{% static 'assets/img/buscar.png' %}" alt="Buscar"></a>
+                    </button>
+                </td>
+            </tr>        
+        </tbody>
+        {% endfor %}
+    </table>
+
+
 
 {% endblock contenidoQueCambia %}

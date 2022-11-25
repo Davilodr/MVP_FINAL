@@ -1,27 +1,30 @@
 {% extends 'index.html' %}
 
 {% load static %}
-{% block title %}Detalle de Dias{% endblock title %}
+{% block title %}Detalle Horas{% endblock title %}
 {% block head %}
-<link href="{% static 'css/stylestableD.css' %}" rel="stylesheet"/>          
+<link href="{% static 'css/stylestableH.css' %}" rel="stylesheet"/>          
 {% endblock head %}
+
+
+        
 
 {% block contenidoQueCambia %}
 <nav class="nav-pager">
   <ul class="pager">
-        {% if page_obj.has_previous %}
+    {% if page_obj.has_previous %}
                     <a href="?page=1">&laquo; first</a>
                     <a href="?page={{ page_obj.previous_page_number }}">previous</a>
-        {% endif %}
+                {% endif %}
 
                 <span class="current">
                     Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
                 </span>
 
-            {% if page_obj.has_next %}
+                {% if page_obj.has_next %}
                     <a href="?page={{ page_obj.next_page_number }}">next</a>
                     <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
-            {% endif %}
+                {% endif %}
     
   </ul>
 </nav>
@@ -30,20 +33,22 @@
     <thead>
       <tr class="col-h">
         <th scope="col">ID</th>
-        <th scope="col">Dia Trabajado</th>
+        <th scope="col">Dia actual</th>
+        <th scope="col">Horas Trabajadas</th>
       </tr>
     </thead>
-        {% for dias in diast %}
-          
-        <tbody> 
-            <tr class="fil-d">
-              <td scope="row">{{dias.id}}</td>
-              <td>{{dias.dia_trabajado}}</td>
+        
+        {% for horas in horast %}
+
+        <tbody>
+            <tr class="fil-h">
+              <th scope="row">{{horas.id}}</th>
+              <td>{{horas.dia_actual}}</td>
+              <td>{{horas.hora_trabajada}}</td>
             </tr>        
         </tbody>
         {% endfor %}
-    </table>
-            
+    </table>           
     
-       
-{% endblock contenidoQueCambia %}           
+
+{% endblock contenidoQueCambia %}

@@ -5,6 +5,10 @@
 {% block title%} Buscar Personal DXTV {% endblock %}
 
     {% block contenidoQueCambia %}
+
+    <button style="background:black">
+        <a href="{% url 'BuscarDatos' %}"><img src="{% static 'assets/img/volver.png' %}" alt="Volver"></a>
+    </button></td>
         
         <form action="{% url 'BuscarD' %}" method="GET">{% csrf_token %}
 

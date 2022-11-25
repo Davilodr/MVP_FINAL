@@ -27,7 +27,7 @@ class UserEditForm(UserChangeForm):
     class Meta:
 
         model = Perfil
-        fields = ['email', 'first_name', 'last_name', 'password1', 'password2']
+        fields = ['email', 'first_name', 'last_name', 'password1', 'password2', 'banner', 'Avatar']
 
 
     def clean_password2(self):
@@ -37,13 +37,3 @@ class UserEditForm(UserChangeForm):
             raise forms.ValidationError("Las contraseñas no coinciden!")
         return password2
     
-class AvatarForm(UserChangeForm):
-    
-    password = forms.CharField(
-        help_text="",
-        widget=forms.HiddenInput(), required=False
-    )
-    
-    class Meta:
-        model=Perfil
-        fields=('Avatar',)

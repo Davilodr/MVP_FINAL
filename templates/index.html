@@ -8,6 +8,12 @@
         <link rel="icon" type="image/x-icon" href="{% static 'assets/img/favicon.ico' %}" />
         <title>{% block title %}Planilla Control{% endblock title %}</title>
         <link href="{% static 'css/stylesnew.css' %}" rel="stylesheet"/>
+        
+        
+        {% block head %}
+            
+        {% endblock head %}
+            
     </head>
     <body>
         <div class="container" id="grid-1">
@@ -19,9 +25,9 @@
                 </div>
                 <nav class="menu">
 
-                    <a class="home" href="{% url 'index' %}"><img clas="home-ico" src="{% static 'assets/img/casa.png' %}" alt="">Home</a>
-                    <a href="{% url 'About' %}">About</a>
-                    <a href="{% url 'Registrar' %}">Register</a>
+                    <a class="home" href="{% url 'index' %}"><img clas="home-ico" src="{% static 'assets/img/casa.png' %}" alt="">Inicio</a>
+                    <a href="{% url 'About' %}"><img clas="home-ico" src="{% static 'assets/img/about.png' %}" alt="">Sobre Mi</a>
+                    <a href="{% url 'Registrar' %}"><img clas="home-ico" src="{% static 'assets/img/registrarse.png' %}" alt="">Registrarse</a>
                     
                 
                 </nav>
@@ -34,18 +40,22 @@
                         
                     </div>
                 {% else %}
-                    <a class="log" href="{% url 'login' %}">Login<img clas="home-ico" src="{% static 'assets/img/usuario.ico' %}" alt=""></a>    
+                    <a class="log" href="{% url 'login' %}">Iniciar Sesion</a>    
                 
                 {% endif %}
                     
         
             </header>
             <main class="main" id="grid-3">
-                
+                {% if user.is_authenticated %}
+                <div class="ban">
+                    <img src="{{banner}}" alt="banner">
+                </div>
+                {% else %}
                 <div class="ban">
                     <img src="{% static 'assets/img/banner.png' %}" alt="">
                 </div>
-
+                {% endif %}
                 <div class="nav">
                     <nav>
                         <a href="{% url 'ListaPersonal' %}">Lista Personal</a>
@@ -77,7 +87,22 @@
             </main>     
                 
             <footer class="footer" id="grid-4">
-                <div class="foot">algo vamos a poner aca</div>
+                <div class="foot-img">
+                    <a href=""><img clas="home-ico" src="{% static 'assets/img/facebook.png' %}"></a>
+                    <a href=""><img clas="home-ico" src="{% static 'assets/img/gmail.png' %}"></a>
+                    <a href=""><img clas="home-ico" src="{% static 'assets/img/github.png' %}"></a>
+                    <a href=""><img clas="home-ico" src="{% static 'assets/img/linkedin.png' %}"></a>
+                    <a href=""><img clas="home-ico" src="{% static 'assets/img/telegram.png' %}"></a>
+                </div>
+                <div>
+                    <h3 class="pla">SISTEMA DE <span class="ctrl">CONTROL</span></h3>
+                </div>
+                <nav class=nav-foot>
+                    <a href="{% url 'index' %}"><img clas="home-ico" src="{% static 'assets/img/casa.png' %}" alt="">Home</a>
+                    <a href="{% url 'About' %}"><img clas="home-ico" src="{% static 'assets/img/about.png' %}" alt="">About</a>
+                    <a href="{% url 'Registrar' %}"><img clas="home-ico" src="{% static 'assets/img/registrarse.png' %}" alt="">Register</a>
+                    
+                </nav>
             </footer>
         </div>
         

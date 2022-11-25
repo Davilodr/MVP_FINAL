@@ -14,7 +14,7 @@ from django.contrib.admin.views.decorators import staff_member_required
 
 from Users.models import Perfil
 
-from .form import AvatarForm, PerfilUserCreationForm, UserEditForm
+from .form import PerfilUserCreationForm, UserEditForm
 
 
 def Index(request):
@@ -41,7 +41,7 @@ def loginview(request):
                 
                 login(request, user)
                 
-                return render(request, "index.html",{"url": user.Avatar.url})
+                return render(request, "index.html",{"url": user.Avatar.url, "banner":user.banner.url})
             else:
                 return render(request, "index.html", {"mensaje": f'Error, los datos ingresados son incorrectos'})
         
@@ -80,40 +80,29 @@ def editar_perfil(request):
 
     if request.method == 'POST':
             
-        editform = UserEditForm(request.POST)
+        editform = UserEditForm(request.POST,request.FILES)
 
         if editform.is_valid():
            
             data = editform.cleaned_data
             
+            
             usuario.first_name = data["first_name"]
             usuario.last_name = data["last_name"]
             usuario.email = data["email"]
+            usuario.banner = data["banner"]
+            usuario.avatar = data['Avatar']
             usuario.set_password(data["password1"])
+            
         
             usuario.save()
-            
-            return render(request, "index.html", {"mensaje": f'Datos actualizados!'})
-        
+            avatar = Perfil.objects.get(pk=request.user.pk)
+            return render(request, "index.html", {"mensaje": f'Datos actualizados!',"url":avatar.Avatar.url, "banner":avatar.banner.url})
+        avatar = Perfil.objects.get(pk=request.user.pk)
         return render(request, "index.html", {"mensaje": 'Contraseñas no coinciden'} )
     
     else:
-
         editform = UserEditForm(instance=request.user)
-        avatar = Perfil.objects.get(pk=request.user.pk)            
-        return render(request, "editarPerfil.html", {"editform": editform, "url": avatar.Avatar.url})
-
-@login_required
-def edit_avatar(request):
-    profile = Perfil.objects.get(pk=request.user.pk)
-    if request.method == 'POST':
-        avatar = AvatarForm(request.POST, request.FILES, instance=profile)
-        if avatar.is_valid():
-            avatar.save(commit = False)
-            avatar.save()
-            
-        return render(request, "index.html",{"mensaje": f'Avatar actualizado!',})
-    else:
-        avatar=AvatarForm()   
         
-        return render(request, "editar_avatar.html", {"avatar":avatar})
+        avatar = Perfil.objects.get(pk=request.user.pk)            
+        return render(request, "editarPerfil.html", {"editform": editform, "url": avatar.Avatar.url, "banner":avatar.banner.url})

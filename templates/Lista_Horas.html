@@ -1,24 +1,64 @@
 {% extends 'index.html' %}
 
 {% load static %}
+{% block title %}Lista Horas{% endblock title %}
+{% block head %}
+<link href="{% static 'css/stylestableH.css' %}" rel="stylesheet"/>          
+{% endblock head %}
 
+
+        
 
 {% block contenidoQueCambia %}
+<nav class="nav-pager">
+  <ul class="pager">
+    {% if page_obj.has_previous %}
+                    <a href="?page=1">&laquo; first</a>
+                    <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                {% endif %}
 
-    <h2>Lista de Horas</h2>
+                <span class="current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span>
 
-    <ul>
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">next</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                {% endif %}
+    
+  </ul>
+</nav>
+<table class="table caption-top">
+    <caption></caption>
+    <thead>
+      <tr class="col-h">
+        <th scope="col">ID</th>
+        <th scope="col">Dia actual</th>
+        <th scope="col">Horas Trabajadas</th>
+        <th scope="col">Nombre Personal</th>
+        <th scope="col">Borrar Horas</th>
+        <th scope="col">Editar Horas</th>
+      </tr>
+    </thead>
         
-        {% for horas in ListHoras %}
-            <li class="lh">
-                
-                {{horas.dia_actual}}- dia de carga<br>
-                {{horas.hora_trabajada}} -horas trabajadas<br>
-                {{horas.personal1.nombre}}- nombre del personal<br>
-                <hr class="hr-h" style= "width:75px">  
-            </li>
+        {% for horas in horast %}
+
+        <tbody>
+            <tr class="fil-h">
+              <th scope="row">{{horas.id}}</th>
+              <td>{{horas.dia_actual}}</td>
+              <td>{{horas.hora_trabajada}}</td>
+              <td>{{horas.personal1.nombre}}</td>
+              <td><button class="deld"> 
+                <a href="{% url 'BorrarHoras' horas.id %}"><img src="{% static 'assets/img/papelera.ico' %}" alt=""></a>
+                </button></td>
+              <td><button class ="edd">
+                <a href="{% url 'UpdateHoras' horas.id %}"><img src="{% static 'assets/img/editar.ico' %}" alt=""></a>
+            </button></td>
+            </tr>        
+        </tbody>
         {% endfor %}
-            
-    </ul>
+    </table>           
+    
 
 {% endblock contenidoQueCambia %}
