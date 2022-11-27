@@ -9,18 +9,18 @@
 </button>
         
    <div class="c-dat">
+        {% if perms.PControl.add_personalcc or request.user.personalcc%}  
         <div>
             <button class="cd"><a href="{% url 'CrearDias' %}"><img src="{% static 'assets/img/editar.ico' %}" alt=""> - Dias</a></button>
             <p> - Acá se cargan los Dias Trabajados</p>
         </div>
-        <div>
-            <button class="cp"> <a href="{% url 'CargarPersonalPage' %}"><img src="{% static 'assets/img/editar.ico' %}" alt=""> - Personal</a></button>
-            <p> - Acá se cargan Personal</p>
-        </div>
+        {% endif %}
+        {% if perms.PControl.add_personaldxtv or request.user.personaldxtv%}
        <div>
             <button class="ch"> <a href="{% url 'CrearHoras' %}"><img src="{% static 'assets/img/editar.ico' %}" alt=""> - Horas</a></button>
             <p> - Acá se cargan las Horas Trabajadas</p>
         </div>
+        {% endif %}
    </div>
 
 {% endblock contenidoQueCambia %}

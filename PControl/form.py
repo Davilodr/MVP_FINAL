@@ -1,7 +1,7 @@
 from django import forms
 
 from .models import Dias_trabajados, Horas_trabajadas
-
+from .widgets import DatePickerInput, TimePickerInput, DateTimePickerInput
 
 
 class Dias_Formulario(forms.ModelForm):
@@ -9,10 +9,10 @@ class Dias_Formulario(forms.ModelForm):
     class Meta:
         model = Dias_trabajados
         fields = ('__all__')
-        widgets ={
-            'dia_trabajado': forms.TextInput(
+        widgets ={'dia_trabajado': DatePickerInput()}
+        {'dia_trabajado': forms.TextInput(
                 attrs={
-                    'placeholder': "año/mes/dia",
+                    'placeholder': "año-mes-dia",
                 }
             )
         }
@@ -27,7 +27,7 @@ class UpdateDia_Form(forms.ModelForm):
         widgets ={
             'dia_trabajado': forms.TextInput(
                 attrs={
-                    'placeholder': "año/mes/dia",
+                    'placeholder': "año-mes-dia",
                 }
             )
         }

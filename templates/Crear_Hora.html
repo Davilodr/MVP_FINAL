@@ -6,6 +6,8 @@
     <button style="background:black">
         <a href="{% url 'CrearDatos' %}"><img src="{% static 'assets/img/volver.png' %}" alt="Volver"></a>
     </button></td>
+    
+    {% if request.user %}   
     <form action="{% url 'CrearHoras' %}" method="POST">{% csrf_token %}
 
         {{forms}}
@@ -13,5 +15,5 @@
         <input class="act" type="submit" value="Cargar"/>
 
     </form>
-
+    {% endif %}
 {% endblock contenidoQueCambia %}

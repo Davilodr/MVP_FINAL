@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% load static %}
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport", initial-scale=1.0>
+        <link rel="icon" type="image/x-icon" href="{% static 'assets/img/favicon.ico' %}" />
+        <title>Planilla Control</title>
+        <link href="{% static 'css/stylesnew.css' %}" rel="stylesheet"/>      
+    </head>
+    <body>
+        <div class="container" id="grid-1">
+            <header class="header" id="grid-2">
+                <div class="Logo">
+                    <h1>Planilla 
+                        <span>Control</span>
+                    </h1>
+                </div>
+                <nav class="menu">
+                    {% if user.is_authenticated %}
+                    <a class="home" href="{% url 'index' %}"><img clas="home-ico" src="{% static 'assets/img/casa.png' %}" alt="">Inicio</a>
+                    <a href="{% url 'About' %}"><img clas="home-ico" src="{% static 'assets/img/about.png' %}" alt="">Sobre Mi</a>
+                    <a href="{% url 'Registrar' %}"><img clas="home-ico" src="{% static 'assets/img/registrarse.png' %}" alt="">Registrarse</a>
+                    {% else %}
+                    <a class="home" href="{% url 'Home' %}"><img clas="home-ico" src="{% static 'assets/img/casa.png' %}" alt="">Inicio</a>
+                    <a href="{% url 'About' %}"><img clas="home-ico" src="{% static 'assets/img/about.png' %}" alt="">Sobre Mi</a>
+                    <a href="{% url 'Registrar' %}"><img clas="home-ico" src="{% static 'assets/img/registrarse.png' %}" alt="">Registrarse</a>
+                    {% endif %}
+                </nav>
+                {% if user.is_authenticated %}       
+                    <div class="container-perfil">
+                        <h3><a class="cls" href="{% url 'logout' %}">Cerrar Sesión</a></h3>
+                        <img class="ava" src="{{url}}" width="25%" alt="avatar">
+                        <a href="{% url 'editarperfil' %}"><img src="{% static 'assets/img/editar.ico' %}" alt=""></a>
+                        <h4>Bienvenido {{user.username}}</h4>
+                        
+                    </div>
+                {% else %}
+                    <a class="log" href="{% url 'login' %}">Iniciar Sesión</a>    
+                
+                {% endif %}
+                    
+            </header>
+           <main>
+                <div class="cont-RLO">
+                    <div class="cont-btn-RLO">
+                        <button class="cp"><a href="{% url 'CreaPersonalDXTV' %}"><img src="{% static 'assets/img/editar.ico' %}" alt=""> - Personal  DXTV</a></button>
+                        <p>Acá se cargan Personal DXTV</p>
+                    </div>
+                    <div>
+                        <button class="cp"><a href="{% url 'CreaPersonalCC' %}"><img src="{% static 'assets/img/editar.ico' %}" alt=""> - Personal CC</a></button>
+                        <p>Acá se cargan Personal CC</p>
+                    </div>
+                </div>
+           </main>  
+            <footer class="footer" id="grid-4">
+                <div class="foot-img">
+                    <a href=""><img clas="home-ico" src="{% static 'assets/img/facebook.png' %}"></a>
+                    <a href=""><img clas="home-ico" src="{% static 'assets/img/gmail.png' %}"></a>
+                    <a href=""><img clas="home-ico" src="{% static 'assets/img/github.png' %}"></a>
+                    <a href=""><img clas="home-ico" src="{% static 'assets/img/linkedin.png' %}"></a>
+                    <a href=""><img clas="home-ico" src="{% static 'assets/img/telegram.png' %}"></a>
+                </div>
+                <div>
+                    <h3 class="pla">SISTEMA DE <span class="ctrl">CONTROL</span></h3>
+                </div>
+                <nav class=nav-foot>
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'index' %}"><img clas="home-ico" src="{% static 'assets/img/casa.png' %}" alt="">Inicio</a>
+                    <a href="{% url 'About' %}"><img clas="home-ico" src="{% static 'assets/img/about.png' %}" alt="">Sobre Mi</a>
+                    <a href="{% url 'Registrar' %}"><img clas="home-ico" src="{% static 'assets/img/registrarse.png' %}" alt="">Registrar</a>
+                    {% else %}
+                    <a href="{% url 'Home' %}"><img clas="home-ico" src="{% static 'assets/img/casa.png' %}" alt="">Inicio</a>
+                    <a href="{% url 'About' %}"><img clas="home-ico" src="{% static 'assets/img/about.png' %}" alt="">Sobre Mi</a>
+                    <a href="{% url 'Registrar' %}"><img clas="home-ico" src="{% static 'assets/img/registrarse.png' %}" alt="">Registrar</a>
+                    {% endif %}
+                </nav>
+            </footer>
+        </div>
+        
+    </body>
+
+    
+
+</html>

@@ -3,6 +3,8 @@
 
 {% load static %}
 
+{% block title %}Crear Dias{% endblock title %}
+
 {% block contenidoQueCambia %}
     <button style="background:black">
         <a href="{% url 'CrearDatos' %}"><img src="{% static 'assets/img/volver.png' %}" alt="Volver"></a>
@@ -10,7 +12,7 @@
         
     <form action="{% url 'CrearDias' %}" method="POST">{% csrf_token %}
 
-        {{forms}}<p>"año/mes/dia"</p>  
+        {{forms}}<p>"año-mes-dia"</p>  
         
         <input class="act" type="submit" value="Cargar"/>
 

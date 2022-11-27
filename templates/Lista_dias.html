@@ -1,7 +1,7 @@
 {% extends 'index.html' %}
 
 {% load static %}
-{% block title %}Lista Horas{% endblock title %}
+{% block title %}Lista Días{% endblock title %}
 {% block head %}
 <link href="{% static 'css/stylestableD.css' %}" rel="stylesheet"/>          
 {% endblock head %}
@@ -10,17 +10,17 @@
 <nav class="nav-pager">
   <ul class="pager">
     {% if page_obj.has_previous %}
-                    <a href="?page=1">&laquo; first</a>
-                    <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                    <a href="?page=1">&laquo; Primera</a>
+                    <a href="?page={{ page_obj.previous_page_number }}">Anterior</a>
                 {% endif %}
 
                 <span class="current">
-                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                    pagina {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.
                 </span>
 
                 {% if page_obj.has_next %}
-                    <a href="?page={{ page_obj.next_page_number }}">next</a>
-                    <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                    <a href="?page={{ page_obj.next_page_number }}">Siguiente</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}">Ultima &raquo;</a>
                 {% endif %}
     
   </ul>

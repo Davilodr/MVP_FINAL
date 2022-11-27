@@ -1,7 +1,7 @@
 {% extends 'index.html' %}
 
 {% load static %}
-{% block title %}Lista Personal{% endblock title %}
+{% block title %}Lista PersonalDXTV{% endblock title %}
 {% block head %}
 <link href="{% static 'css/stylestableP.css' %}" rel="stylesheet"/>          
 {% endblock head %}
@@ -32,8 +32,12 @@
         <th scope="col">Nombre</th>
         <th scope="col">Apellido</th>
         <th scope="col">Detalle Personal</th>
+        {% if perms.PControl.add_personaldxtv %}
         <th scope="col">Borrar</th>
+        {% endif %}
+        {% if perms.PControl.add_personaldxtv %}
         <th scope="col">Editar</th>
+        {% endif %}
         <th scope="col">Dias Personal</th>
       </tr>
     </thead>
@@ -47,17 +51,23 @@
                         <a class = "lisD" href="{% url 'VerPersonalDXTV' Persona.id %}"><img src="{% static 'assets/img/detalle.png' %}" alt="Detalle"></a>
                     </button>
                 </td>
+                {% if perms.PControl.add_personaldxtv %}
                 <td><button class="deld"> 
                         <a href="{% url 'BorrarPerDXTV' Persona.id %}"><img src="{% static 'assets/img/papelera.png' %}" alt="Borrar"></a>
                     </button></td>
+                {% endif %}
+                {% if perms.PControl.add_personaldxtv %}
                 <td><button class ="edd">
                         <a href="{% url 'UpdatePersonalDXTV' Persona.id %}"><img src="{% static 'assets/img/editar.png' %}" alt="Editar"></a>
                     </button></td>
+                {% endif %}
+                {% if perms.PControl.add_personaldxtv or request.user.personaldxtv%}
                 <td>
                     <button class="deld">
                         <a href="{% url 'filtrarH' Persona.id %}"><img src="{% static 'assets/img/buscar.png' %}" alt="Buscar"></a>
                     </button>
                 </td>
+                {% endif %}
             </tr>        
         </tbody>
         {% endfor %}

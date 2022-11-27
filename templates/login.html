@@ -2,6 +2,8 @@
 
 {% load static %}
 
+{% block title %}Inicio Sesión{% endblock title %}
+
 {% block contenidoQueCambia %}
         
     <form action="{% url 'login' %}" method="POST">{% csrf_token %}

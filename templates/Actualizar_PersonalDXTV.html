@@ -3,10 +3,13 @@
 {% load static %}
 
 {% block contenidoQueCambia %}
+<button style="background:black">
+    <a href="{% url 'ListaPersonalDXTV' %}"><img src="{% static 'assets/img/volver.png' %}" alt="Volver"></a>
+</button>
         
     <form method="POST">{% csrf_token %}
         
-        {{form.as_p}}
+        {{editform}}
         
         <input class="act" type="submit" value="Actualizar"/>
 

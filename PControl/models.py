@@ -60,6 +60,8 @@ class Supervisor(models.Model):
     apellido = models.CharField(max_length=50)
     dni = models.IntegerField()
     email = models.EmailField(max_length=254)
+    telefono= models.IntegerField()
+    direccion=models.CharField(max_length=254)
     user_id = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     
     def __str__(self):

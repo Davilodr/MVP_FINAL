@@ -10,18 +10,36 @@
         
    <div class="c-per">
         
-        <div>
-            <button class="cp"><a href="{% url 'CreaPersonalDXTV' %}"><img src="{% static 'assets/img/editar.ico' %}" alt=""> - Personal  DXTV</a></button>
-            <p>Acá se cargan Personal DXTV</p>
-        </div>
-        <div>
-            <button class="cp"><a href="{% url 'CreaPersonalCC' %}"><img src="{% static 'assets/img/editar.ico' %}" alt=""> - Personal CC</a></button>
-            <p>Acá se cargan Personal CC</p>
-        </div>
-        <div>
-            <button class="cp"><a href="{% url 'CreaSupervisor' %}"><img src="{% static 'assets/img/editar.ico' %}" alt=""> - Supervisor</a></button>
-            <p>Acá se carga Supervisor</p>
-        </div>
+        {% if user.is_authenticated %}
+            
+            {% if request.user.supervisor or request.user.administrador %}
+            <div>
+                <button class="cp"><a href="{% url 'CreaPersonalDXTV' %}"><img src="{% static 'assets/img/editar.ico' %}" alt=""> - Personal  DXTV</a></button>
+                <p>Acá se cargan Personal DXTV</p>
+            </div>
+            {% endif %}
+            {% if request.user.supervisor or request.user.administrador %}
+            <div>
+                <button class="cp"><a href="{% url 'CreaPersonalCC' %}"><img src="{% static 'assets/img/editar.ico' %}" alt=""> - Personal CC</a></button>
+                <p>Acá se cargan Personal CC</p>
+            </div>
+            {% endif %}
+            {% if perms.Pcontrol.add_supervisor or request.user.administrador %}
+            <div>
+                <button class="cp"><a href="{% url 'CreaSupervisor' %}"><img src="{% static 'assets/img/editar.ico' %}" alt=""> - Supervisor</a></button>
+                <p>Acá se carga Supervisor</p>
+            </div>
+            {% endif %}
+        {% else %}
+            <div>
+                <button class="cp"><a href="{% url 'CreaPersonalDXTV' %}"><img src="{% static 'assets/img/editar.ico' %}" alt=""> - Personal  DXTV</a></button>
+                <p>Acá se cargan Personal DXTV</p>
+            </div>
+            <div>
+                <button class="cp"><a href="{% url 'CreaPersonalCC' %}"><img src="{% static 'assets/img/editar.ico' %}" alt=""> - Personal CC</a></button>
+                <p>Acá se cargan Personal CC</p>
+            </div>
+        {% endif %}
    </div>
 
 {% endblock contenidoQueCambia %}

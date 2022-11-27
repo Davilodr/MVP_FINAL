@@ -224,6 +224,14 @@ h5{ text-decoration: none;
     
 }
 
+.edit-ava{
+    border-radius: 50px;
+    display: flex;
+    margin-left: 45%;
+    margin-top: 15px;
+}
+
+
 a.log{
     padding: 10px;
     font-size: 20px;
@@ -371,6 +379,19 @@ a.log:hover{
     
 }
 
+.cont-img{
+    background-color: #262626;
+    height: 100%;
+    width: 100%;
+    margin-top:0.2%;
+    
+}
+
+.img-back{
+    margin-left:7.5%;
+    object-fit: cover;
+}
+
 .abo-cont{
     margin-top: 30px;
     
@@ -422,4 +443,30 @@ a.log:hover{
 .ctrl{
     color:rgb(197, 86, 1) ;
     font-size:x-large;
+}
+
+.cont-SM{
+    object-fit: contain;
+    text-align: center;
+}
+
+.p-SM{
+    text-align: center;
+    font-size: x-large;
+}
+
+.h2-SM{
+    text-align: center;
+    font-size: xxx-large;
+}
+
+.cont-RLO{
+    display: flex;
+    flex-direction: row;
+    margin-top: 25%;
+    margin-left: 35%;
+}
+
+.cont-btn-RLO{
+    margin-right:50px;
 }

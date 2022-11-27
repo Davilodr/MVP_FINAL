@@ -1,6 +1,8 @@
 
 from django.urls import path
 
+from Users.views import Cargar_personal_logout, Home, Sobre_Mi
+
 from .views import (About,
                     Borrar_PersonalCC,
                     Borrar_PersonalDXTV,
@@ -13,16 +15,18 @@ from .views import (About,
                     BuscarD,
                     BuscarP, 
                     Cargar_Personal,
+                    
                     Crear_Datos,
                     Crear_User_PersonalCC,
                     Crear_User_PersonalDXTV,
-                    Crear_User_Supervisor,
+                    Crear_User_Supervisor, Facebook, Github, Gmail,
+                    
                     Index,
                     Listar_Personal,
                     Listar_PersonalCC,
                     Listar_PersonalDXTV,
                     Listar_dias,
-                    Listar_horas,
+                    Listar_horas, Telegram,
                     Ver_PersonalCC,
                     Ver_PersonalDXTV,
                     crear_dias,
@@ -32,11 +36,12 @@ from .views import (About,
                     editar_dias,
                     editar_horas,
                     filtrarD,
-                    filtrarH)
+                    filtrarH, linkedin)
 
 urlpatterns =[
-    path('', Index, name="index"),
-    
+    path('', Home, name="Home"),
+    path('Sobre_Mi/', Sobre_Mi, name="SobreMi"),
+    path('Index/', Index, name="index"),
     path('Crear_dias/', crear_dias, name="CrearDias"),
     path('Lista_dias/', Listar_dias, name="ListaDias"),
     path('Actualizar_Dias/<int:id>', editar_dias, name="UpdateDias"),
@@ -69,7 +74,10 @@ urlpatterns =[
     path('About', About, name="About"),
     path('Filtrar_dias/<int:id>', filtrarD, name="filtrarD"),
     path('Filtrar_horas/<int:id>', filtrarH, name="filtrarH"),
-    
-  
-
+    path('Registrar_logout', Cargar_personal_logout, name="RegistrarLogout"),
+    path('Facebook', Facebook, name="Facebook"),
+    path('Gmail', Gmail, name="Gmail"),
+    path('Github', Github, name="Github"),
+    path('Linkedin', linkedin, name="Linkedin"),
+    path('Telegram', Telegram, name="Telegram"),
 ]

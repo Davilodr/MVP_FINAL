@@ -22,8 +22,50 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.admin.views.decorators import staff_member_required
 from django.core.paginator import Paginator
 
+def Facebook(request):
+    
+    try:
+        avatar = Perfil.objects.get(pk=request.user.pk)
+        
+        return render(request, "index.html",{"mensaje":f'Seguime en Facebook "Davilodr"',"url": avatar.Avatar.url, "banner":avatar.banner.url})
+    except:
+        return render(request, "index.html",{"mensaje":f'Seguime en Facebook "Davilodr"'})
+    
+def Gmail(request):
+    
+    try:
+        avatar = Perfil.objects.get(pk=request.user.pk)
+        
+        return render(request, "index.html",{"mensaje":f'Escribime al Correo davilodr@gmail.com',"url": avatar.Avatar.url, "banner":avatar.banner.url})
+    except:
+        return render(request, "index.html",{"mensaje":f'Escribime al Correo davilodr@gmail.com'})
+def Github(request):
+    
+    
+    try:
+        avatar = Perfil.objects.get(pk=request.user.pk)
+        
+        return render(request, "index.html",{"mensaje":f'Segui mis proyectos en Github, User @Davilodr',"url": avatar.Avatar.url, "banner":avatar.banner.url})
+    except:
+        return render(request, "index.html",{"mensaje":f'Segui mis proyectos en Github, User @Davilodr'})
+def linkedin(request):
+    
+    try:
+        avatar = Perfil.objects.get(pk=request.user.pk)
+        
+        return render(request, "index.html",{"mensaje":f'Contactame por Linkedin, ("linkedin.com/in/david-daniel-ramirez-9a09a51b4")',"url": avatar.Avatar.url, "banner":avatar.banner.url})
+    except:
+        return render(request, "index.html",{"mensaje":f'Contactame por Linkedin, ("linkedin.com/in/david-daniel-ramirez-9a09a51b4")'})
+def Telegram(request):
+    
+    try:
+        avatar = Perfil.objects.get(pk=request.user.pk)
+        
+        return render(request, "index.html",{"mensaje":f'Contactame por Telegram , ("+549011-1569631328")',"url": avatar.Avatar.url, "banner":avatar.banner.url})
+    except:
+        return render(request, "index.html",{"mensaje":f'Contactame por Telegram , ("+549011-1569631328")'})
 
-
+@login_required
 def Index(request):
     
     try:
@@ -32,58 +74,64 @@ def Index(request):
         return render(request, "index.html",{"url": avatar.Avatar.url, "banner":avatar.banner.url})
     except:
         return render(request, "index.html")
-        
+    
 def Cargar_Personal(request):
+    
     try:  
         avatar = Perfil.objects.get(pk=request.user.pk)
         return render(request, "Cargar_Personal.html",{"url": avatar.Avatar.url, "banner":avatar.banner.url})
     except:
         return render(request, "Cargar_Personal.html")
+@login_required
 def About(request):
     try:  
         avatar = Perfil.objects.get(pk=request.user.pk)
         return render(request, "About.html",{"url": avatar.Avatar.url, "banner":avatar.banner.url})
     except:
-        return render(request, "About.html")
+        return render(request, "About.html")       
+@login_required
 def Crear_Datos(request):
     try:  
         avatar = Perfil.objects.get(pk=request.user.pk)
         return render(request, "Crear_Datos.html",{"url": avatar.Avatar.url, "banner":avatar.banner.url})
     except:
          return render(request, "Crear_Datos.html")
+@login_required
 def Listar_Personal(request):
     try:
         avatar = Perfil.objects.get(pk=request.user.pk)
         return render(request, "Lista_Personal.html",{"url": avatar.Avatar.url, "banner":avatar.banner.url})
     except:
         return render(request, "Lista_Personal.html")
+@login_required
 def Buscar_datos(request):
     try:
         avatar = Perfil.objects.get(pk=request.user.pk)
         return render(request, "Buscar_datos.html",{"url": avatar.Avatar.url, "banner":avatar.banner.url})
     except:
         return render(request, "Buscar_datos.html")
+@login_required
 def Buscar_dias(request):
     try:
         avatar = Perfil.objects.get(pk=request.user.pk)
         return render(request, "Buscar_dias.html",{"url": avatar.Avatar.url, "banner":avatar.banner.url})
     except:
         return render(request, "Buscar_dias.html")
-
+@login_required
 def Buscar_personalCC(request):
     try:
         avatar = Perfil.objects.get(pk=request.user.pk)
         return render(request, "Buscar_personalCC.html",{"url": avatar.Avatar.url, "banner":avatar.banner.url})
     except:
         return render(request, "Buscar_personalCC.html")
+@login_required
 def Buscar_personalDXTV(request):
     try:
         avatar = Perfil.objects.get(pk=request.user.pk)
         return render(request, "Buscar_personalDXTV.html",{"url": avatar.Avatar.url, "banner":avatar.banner.url})
     except:
         return render(request, "Buscar_personalDXTV.html")
-
-
+@login_required
 def BuscarP(request):
     
     if request.GET["dni"]:
@@ -100,7 +148,7 @@ def BuscarP(request):
     else:
         avatar = Perfil.objects.get(pk=request.user.pk)
         return render(request, "Buscar_personalDXTV.html", {"mensaje": f'Los datos ingresados son incorrectos', "url": avatar.Avatar.url, "banner":avatar.banner.url})
-
+@login_required
 def BuscarD(request):
    
     
@@ -116,8 +164,7 @@ def BuscarD(request):
             return render(request, "Buscar_personalDXTV.html", {"mensaje": f'El dni ingresado no pertenece a DXTV', "url": avatar.Avatar.url, "banner":avatar.banner.url})
     else:
         avatar = Perfil.objects.get(pk=request.user.pk)
-        return render(request, "Buscar_personalDXTV.html", {"mensaje": f'Los datos ingresados son incorrectos', "url": avatar.Avatar.url, "banner":avatar.banner.url})
-        
+        return render(request, "Buscar_personalDXTV.html", {"mensaje": f'Los datos ingresados son incorrectos', "url": avatar.Avatar.url, "banner":avatar.banner.url})      
 
 def Crear_User_PersonalCC(request):
     
@@ -156,19 +203,34 @@ def Crear_User_PersonalCC(request):
             user.save()
             Personal.save()
             user.groups.add(ControlCentral)
-            avatar = Perfil.objects.get(pk=request.user.pk)                       
-            return render(request, "index.html", {"mensaje": f'Perfil creado con exito', "url": avatar.Avatar.url, "banner":avatar.banner.url})
+            try:
+        
+                avatar = Perfil.objects.get(pk=request.user.pk)                       
+                return render(request, "index.html", {"mensaje": f'Perfil creado con exito', "url": avatar.Avatar.url, "banner":avatar.banner.url})
+            except:
+                
+                return render(request, "index.html", {"mensaje": f'Perfil creado con exito'})
+            
         else:
-            avatar = Perfil.objects.get(pk=request.user.pk)
-            return render(request, "index.html",{"mensaje": f'Error, formulario invalido', "url": avatar.Avatar.url, "banner":avatar.banner.url})      
+            
+            try:
+                avatar = Perfil.objects.get(pk=request.user.pk)
+                return render(request, "index.html",{"mensaje": f'Error, formulario invalido', "url": avatar.Avatar.url, "banner":avatar.banner.url})      
+            except:
+                
+                return render(request, "index.html", {"mensaje": f'Error, formulario invalido'})
     else:
-
-        PersonalForm = PersonalFormulario()
-        avatar = Perfil.objects.get(pk=request.user.pk)
-        userform = PerfilUserCreationForm()
-
-        return render(request, "personal_formularioCC.html", {"personalform": PersonalForm, "userform": userform, "url": avatar.Avatar.url, "banner":avatar.banner.url})
-
+        
+        try:
+            avatar = Perfil.objects.get(pk=request.user.pk)
+            PersonalForm = PersonalFormulario()
+            userform = PerfilUserCreationForm()
+            return render(request, "personal_formularioCC.html", {"personalform": PersonalForm, "userform": userform, "url": avatar.Avatar.url, "banner":avatar.banner.url})
+        except:
+            PersonalForm = PersonalFormulario()
+            userform = PerfilUserCreationForm()
+            return render(request, "personal_formularioCC.html", {"personalform": PersonalForm, "userform": userform})
+            
 def Crear_User_PersonalDXTV(request):
     
     if request.method == 'POST':
@@ -207,19 +269,32 @@ def Crear_User_PersonalDXTV(request):
             user.save()
             Personal.save()
             user.groups.add(DXtv)
-            avatar = Perfil.objects.get(pk=request.user.pk)
-            return render(request, "index.html", {"mensaje": f'Perfil creado con exito', "url": avatar.Avatar.url, "banner":avatar.banner.url})
+            try:
+                avatar = Perfil.objects.get(pk=request.user.pk)
+                return render(request, "index.html", {"mensaje": f'Perfil creado con exito', "url": avatar.Avatar.url, "banner":avatar.banner.url})
+            except:
+                return render(request, "index.html", {"mensaje": f'Perfil creado con exito'})
         else:
-            avatar = Perfil.objects.get(pk=request.user.pk)
-            return render(request, "index.html",{"mensaje": f'Error, formulario invalido', "url": avatar.Avatar.url, "banner":avatar.banner.url})
+            try:
+                
+                avatar = Perfil.objects.get(pk=request.user.pk)
+                return render(request, "index.html",{"mensaje": f'Error, formulario invalido', "url": avatar.Avatar.url, "banner":avatar.banner.url})
+            except:
+                return render(request, "index.html",{"mensaje": f'Error, formulario invalido'})
     else:
+        try:
+            avatar = Perfil.objects.get(pk=request.user.pk)
+            PersonalForm = PersonalFormulario()
+            userform = PerfilUserCreationForm()
 
-        PersonalForm = PersonalFormulario()
-        avatar = Perfil.objects.get(pk=request.user.pk)
-        userform = PerfilUserCreationForm()
+            return render(request, "personal_formularioDXTV.html", {"personalform": PersonalForm, "userform": userform, "url": avatar.Avatar.url, "banner":avatar.banner.url})
+        except:
+            PersonalForm = PersonalFormulario()
+            userform = PerfilUserCreationForm()
+        
+        return render(request, "personal_formularioDXTV.html", {"personalform": PersonalForm, "userform": userform})
 
-        return render(request, "personal_formularioDXTV.html", {"personalform": PersonalForm, "userform": userform, "url": avatar.Avatar.url, "banner":avatar.banner.url})
-
+@login_required
 def Crear_User_Supervisor(request):
     
     if request.method == 'POST':
@@ -230,7 +305,9 @@ def Crear_User_Supervisor(request):
             {"nombre":info["nombre"],
              "apellido":info["apellido"],
              "dni":info["dni"],
-             "email":info["email"]}  
+             "email":info["email"],
+             "telefono":info["telefono"],
+             "direccion":info["direccion"]}  
         )
         
         userform = PerfilUserCreationForm(
@@ -248,7 +325,7 @@ def Crear_User_Supervisor(request):
             user = Perfil(username = data["username"])
             user.set_password(data["password1"])
 
-            Personal = Supervisor(nombre=data['nombre'], apellido=data['apellido'], email=data['email'], dni=data['dni'], 
+            Personal = Supervisor(nombre=data['nombre'], apellido=data['apellido'], email=data['email'], dni=data['dni'], telefono=data['telefono'], direccion=data['direccion'], 
             user_id=user)
             
             Super = Group.objects.get(name='Supervisor')
@@ -267,10 +344,10 @@ def Crear_User_Supervisor(request):
         userform = PerfilUserCreationForm()
 
         return render(request, "FormularioSupervisor.html", {"personalform": PersonalForm, "userform": userform, "url": avatar.Avatar.url, "banner":avatar.banner.url})
-
+@login_required
 def Listar_dias(request):
     
-    diast = Dias_trabajados.objects.all()
+    diast = Dias_trabajados.objects.all().order_by("-id")
     page = request.GET.get  ('page', 1)
    
     try:
@@ -282,13 +359,13 @@ def Listar_dias(request):
     
     avatar = Perfil.objects.get(pk=request.user.pk)
     return render(request, "Lista_dias.html", {"diast":diast, "page_obj" :diast, "url":avatar.Avatar.url, "banner":avatar.banner.url})
-
+@login_required
 def filtrarD(request, id):
         
         nombreDT = Dias_trabajados.objects.filter(personal = id)
         page = request.GET.get  ('page', 1)
         nombreDT = nombreDT.values("personal")
-        nombreDT = nombreDT.values()
+        nombreDT = nombreDT.values().order_by("-id")
         try:
             paginator=Paginator(nombreDT, 5)
             nombreDT =paginator.page(page)
@@ -297,7 +374,7 @@ def filtrarD(request, id):
             render(request, "Lista_dias.html")
         avatar = Perfil.objects.get(pk=request.user.pk)             
         return render(request, "diascc.html",{"diast":nombreDT,"page_obj":nombreDT, "url":avatar.Avatar.url, "banner":avatar.banner.url})
-    
+@login_required
 def crear_dias(request):
     
     if request.method == 'POST':
@@ -320,7 +397,7 @@ def crear_dias(request):
         dias_form = Dias_Formulario
         avatar = Perfil.objects.get(pk=request.user.pk)
         return render(request, "Crear_dias.html", {"forms": dias_form, "url":avatar.Avatar.url, "banner":avatar.banner.url})
-     
+@login_required
 def editar_dias(request, id):
     
     dia_trabajado = Dias_trabajados.objects.get(id=id)
@@ -351,7 +428,7 @@ def editar_dias(request, id):
         editform = UpdateDia_Form(initial={"dia_trabajado":dia_trabajado.dia_trabajado, "personal":dia_trabajado.personal})
         avatar = Perfil.objects.get(pk=request.user.pk)            
         return render(request, "Actualizar_dias.html", {"editform": editform, "url": avatar.Avatar.url, "banner":avatar.banner.url})     
-
+@login_required
 def Borrar_dias(request, id):
     
     if request.method == 'POST':
@@ -372,10 +449,10 @@ def Borrar_dias(request, id):
     else:
         avatar = Perfil.objects.get(pk=request.user.pk)
         return render(request, "Borrar_dias.html",{"url": avatar.Avatar.url, "banner":avatar.banner.url})
-        
+@login_required        
 def Listar_horas(request):
     
-    horast = Horas_trabajadas.objects.all()
+    horast = Horas_trabajadas.objects.all().order_by("-id")
     
     page = request.GET.get  ('page', 1)
     
@@ -389,13 +466,13 @@ def Listar_horas(request):
     
     avatar = Perfil.objects.get(pk=request.user.pk)
     return render(request, "Lista_Horas.html", {"horast":horast, "page_obj" :horast, "url":avatar.Avatar.url, "banner":avatar.banner.url})
-
+@login_required
 def filtrarH(request, id):
         
         nombreHT = Horas_trabajadas.objects.filter(personal1 = id)
         page = request.GET.get  ('page', 1)
         nombreHT = nombreHT.values("personal1")
-        nombreHT = nombreHT.values()
+        nombreHT = nombreHT.values().order_by("-id")
         try:
             paginator=Paginator(nombreHT,8)
             nombreHT =paginator.page(page)
@@ -406,8 +483,10 @@ def filtrarH(request, id):
         
         avatar = Perfil.objects.get(pk=request.user.pk)            
         return render(request, "horasDXTV.html",{"horast":nombreHT, "page_obj" :nombreHT, "url":avatar.Avatar.url, "banner":avatar.banner.url})
-    
+@login_required    
 def crear_horas(request):
+
+    
     
     if request.method == 'POST':
         
@@ -429,7 +508,7 @@ def crear_horas(request):
         horas_form = Horas_Formulario()
         avatar = Perfil.objects.get(pk=request.user.pk)
         return render(request, "Crear_Hora.html", {"forms": horas_form, "url":avatar.Avatar.url, "banner":avatar.banner.url})
-     
+@login_required     
 def editar_horas(request, id):
     
     horas_trabajadas = Horas_trabajadas.objects.get(id=id)
@@ -461,7 +540,7 @@ def editar_horas(request, id):
         editform = Updatehoras_Form(initial={"hora_trabajada":horas_trabajadas.hora_trabajada, "personal1":horas_trabajadas.personal1})
         avatar = Perfil.objects.get(pk=request.user.pk)            
         return render(request, "Actualizar_horas.html", {"editform": editform, "url": avatar.Avatar.url, "banner":avatar.banner.url})       
-
+@login_required
 def Borrar_horas(request, id):
     
     if request.method == 'POST':
@@ -485,7 +564,7 @@ def Borrar_horas(request, id):
     else:
         avatar = Perfil.objects.get(pk=request.user.pk)
         return render(request, "Borrar_horas.html",{"url": avatar.Avatar.url, "banner":avatar.banner.url})
-    
+@login_required    
 def Listar_PersonalCC(request):
     
     personalCC = PersonalCC.objects.all()
@@ -502,7 +581,7 @@ def Listar_PersonalCC(request):
     
     avatar = Perfil.objects.get(pk=request.user.pk)
     return render(request, "Lista_PersonalCC.html", {"perCC":personalCC, "page_obj" :personalCC, "url":avatar.Avatar.url, "banner":avatar.banner.url})
-  
+@login_required  
 def editar_PersonalCC(request, id):
     
     personal = PersonalCC.objects.get(id=id)
@@ -540,7 +619,7 @@ def editar_PersonalCC(request, id):
                                                "direccion":personal.direccion,})
         avatar = Perfil.objects.get(pk=request.user.pk)            
         return render(request, "Actualizar_PersonalCC.html", {"editform": editform, "url": avatar.Avatar.url, "banner":avatar.banner.url})      
-
+@login_required
 def Borrar_PersonalCC(request, id):
     
     if request.method == 'POST':
@@ -554,14 +633,14 @@ def Borrar_PersonalCC(request, id):
     else:
         avatar = Perfil.objects.get(pk=request.user.pk)
         return render(request, "Borrar_PersonalCC.html",{"url": avatar.Avatar.url, "banner":avatar.banner.url})
-
+@login_required
 def Ver_PersonalCC(request, id):
     
     personalCC = PersonalCC.objects.get(id=id)
     avatar = Perfil.objects.get(pk=request.user.pk)
     
     return render(request, "Ver_PersonalCC.html", {"DetaileCC":personalCC, "url": avatar.Avatar.url, "banner":avatar.banner.url } )
-       
+@login_required       
 def Listar_PersonalDXTV(request):
     
     personalDXTV = PersonalDXTV.objects.all()
@@ -581,7 +660,7 @@ def Listar_PersonalDXTV(request):
                                                        "page_obj" :personalDXTV,
                                                        "url":avatar.Avatar.url,
                                                        "banner":avatar.banner.url})
-  
+@login_required  
 def editar_PersonalDXTV(request, id):
     
     personal = PersonalDXTV.objects.get(id=id)
@@ -618,8 +697,8 @@ def editar_PersonalDXTV(request, id):
                                                "telefono":personal.telefono, 
                                                "direccion":personal.direccion,})
         avatar = Perfil.objects.get(pk=request.user.pk)            
-        return render(request, "Actualizar_PersonalCC.html", {"editform": editform, "url": avatar.Avatar.url, "banner":avatar.banner.url})      
-
+        return render(request, "Actualizar_PersonalDXTV.html", {"editform": editform, "url": avatar.Avatar.url, "banner":avatar.banner.url})      
+@login_required
 def Borrar_PersonalDXTV(request, id):
     
     if request.method == 'POST':
@@ -633,7 +712,7 @@ def Borrar_PersonalDXTV(request, id):
     else:
         avatar = Perfil.objects.get(pk=request.user.pk)
         return render(request, "Borrar_PersonalDXTV.html",{"url": avatar.Avatar.url, "banner":avatar.banner.url})
-
+@login_required
 def Ver_PersonalDXTV(request, id):
     
     personalDXTV = PersonalDXTV.objects.get(id=id)
