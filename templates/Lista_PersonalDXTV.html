@@ -10,17 +10,17 @@
 <nav class="nav-pager">
   <ul class="pager">
     {% if page_obj.has_previous %}
-                    <a href="?page=1">&laquo; first</a>
-                    <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                    <a href="?page=1">&laquo; Primera</a>
+                    <a href="?page={{ page_obj.previous_page_number }}">Anterior</a>
                 {% endif %}
 
                 <span class="current">
-                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                    Página {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
                 </span>
 
                 {% if page_obj.has_next %}
-                    <a href="?page={{ page_obj.next_page_number }}">next</a>
-                    <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                    <a href="?page={{ page_obj.next_page_number }}">Siguiente</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}">Última &raquo;</a>
                 {% endif %}
     
   </ul>
@@ -31,14 +31,14 @@
       <tr class="col-h">
         <th scope="col">Nombre</th>
         <th scope="col">Apellido</th>
-        <th scope="col">Detalle Personal</th>
         {% if perms.PControl.add_personaldxtv %}
+        <th scope="col">Detalle Personal</th>
         <th scope="col">Borrar</th>
         {% endif %}
         {% if perms.PControl.add_personaldxtv %}
         <th scope="col">Editar</th>
         {% endif %}
-        <th scope="col">Dias Personal</th>
+        <th scope="col">Horas Personal</th>
       </tr>
     </thead>
         {% for Persona in perDXTV %}
@@ -47,16 +47,18 @@
             <tr class="fil-d">
                 <td scope="row">{{Persona.nombre}}</td>
                 <td>{{Persona.apellido}}</td>
+                {% if perms.PControl.add_personaldxtv %}
                 <td><button class ="ed">
                         <a class = "lisD" href="{% url 'VerPersonalDXTV' Persona.id %}"><img src="{% static 'assets/img/detalle.png' %}" alt="Detalle"></a>
                     </button>
                 </td>
+                {% endif %}
                 {% if perms.PControl.add_personaldxtv %}
                 <td><button class="deld"> 
                         <a href="{% url 'BorrarPerDXTV' Persona.id %}"><img src="{% static 'assets/img/papelera.png' %}" alt="Borrar"></a>
                     </button></td>
                 {% endif %}
-                {% if perms.PControl.add_personaldxtv %}
+                {% if perms.PControl.add_personaldxtv%}
                 <td><button class ="edd">
                         <a href="{% url 'UpdatePersonalDXTV' Persona.id %}"><img src="{% static 'assets/img/editar.png' %}" alt="Editar"></a>
                     </button></td>

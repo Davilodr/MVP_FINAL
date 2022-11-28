@@ -271,9 +271,9 @@ def Crear_User_PersonalDXTV(request):
             user.groups.add(DXtv)
             try:
                 avatar = Perfil.objects.get(pk=request.user.pk)
-                return render(request, "index.html", {"mensaje": f'Perfil creado con exito', "url": avatar.Avatar.url, "banner":avatar.banner.url})
+                return render(request, "index.html", {"mensaje": f'Perfil creado con éxito', "url": avatar.Avatar.url, "banner":avatar.banner.url})
             except:
-                return render(request, "index.html", {"mensaje": f'Perfil creado con exito'})
+                return render(request, "index.html", {"mensaje": f'Perfil creado con éxito'})
         else:
             try:
                 
@@ -334,7 +334,7 @@ def Crear_User_Supervisor(request):
             Personal.save()
             user.groups.add(Super)
             
-            return render(request, "index.html", {"mensaje": f'Perfil creado con exito'})
+            return render(request, "index.html", {"mensaje": f'Perfil creado con éxito'})
         else:
             return render(request, "index.html",{"mensaje": f'Error, formulario invalido'})
     else:
@@ -388,13 +388,13 @@ def crear_dias(request):
             dia= Dias_trabajados(dia_trabajado=info['dia_trabajado'], personal=info['personal'])
             dia.save()
             avatar = Perfil.objects.get(pk=request.user.pk)
-            return render (request, "index.html", {"mensaje": f'Dia creado con exito',"url":avatar.Avatar.url, "banner":avatar.banner.url})  
+            return render (request, "index.html", {"mensaje": f'Dia creado con éxito',"url":avatar.Avatar.url, "banner":avatar.banner.url})  
         else:
             avatar = Perfil.objects.get(pk=request.user.pk)
             return render(request, "index.html", {"mensaje": f'Datos ingresados invalidos',"url":avatar.Avatar.url, "banner":avatar.banner.url})
     else:
         
-        dias_form = Dias_Formulario
+        dias_form = Dias_Formulario()
         avatar = Perfil.objects.get(pk=request.user.pk)
         return render(request, "Crear_dias.html", {"forms": dias_form, "url":avatar.Avatar.url, "banner":avatar.banner.url})
 @login_required
@@ -418,7 +418,7 @@ def editar_dias(request, id):
             dia_trabajado.save()
             
             avatar = Perfil.objects.get(pk=request.user.pk) 
-            return render(request, "index.html", {"mensaje": f'Datos actualizados!', "url": avatar.Avatar.url, "banner":avatar.banner.url})
+            return render(request, "index.html", {"mensaje": f'¡Datos actualizados!', "url": avatar.Avatar.url, "banner":avatar.banner.url})
         
         avatar = Perfil.objects.get(pk=request.user.pk) 
         return render(request, "index.html", {"mensaje": 'Datos ingresados incorrectos', "url": avatar.Avatar.url, "banner":avatar.banner.url} )
@@ -499,7 +499,7 @@ def crear_horas(request):
             hora= Horas_trabajadas(hora_trabajada=info['hora_trabajada'], personal1=info['personal1'])
             hora.save()
             avatar = Perfil.objects.get(pk=request.user.pk)
-            return render (request, "index.html", {"mensaje": f'Horas cargadas con exito',"url":avatar.Avatar.url, "banner":avatar.banner.url})  
+            return render (request, "index.html", {"mensaje": f'Horas cargadas con éxito',"url":avatar.Avatar.url, "banner":avatar.banner.url})  
         else:
             avatar = Perfil.objects.get(pk=request.user.pk)
             return render(request, "index.html", {"mensaje": f'Datos ingresados invalidos',"url":avatar.Avatar.url, "banner":avatar.banner.url})
@@ -560,7 +560,7 @@ def Borrar_horas(request, id):
             render(request, "Lista_Horas.html")
         avatar = Perfil.objects.get(pk=request.user.pk)
         
-        return render(request, "index.html",{"mensaje":f'Horas borradas con exito',"url": avatar.Avatar.url, "banner":avatar.banner.url})
+        return render(request, "index.html",{"mensaje":f'Horas borradas con éxito',"url": avatar.Avatar.url, "banner":avatar.banner.url})
     else:
         avatar = Perfil.objects.get(pk=request.user.pk)
         return render(request, "Borrar_horas.html",{"url": avatar.Avatar.url, "banner":avatar.banner.url})
@@ -572,7 +572,7 @@ def Listar_PersonalCC(request):
     page = request.GET.get  ('page', 1)
     
     try:
-        paginator=Paginator(personalCC, 8)
+        paginator=Paginator(personalCC, 5)
         personalCC =paginator.page(page)
         
     except:
@@ -629,7 +629,7 @@ def Borrar_PersonalCC(request, id):
     
         personalCC = PersonalCC.objects.all()
         avatar = Perfil.objects.get(pk=request.user.pk)
-        return render(request, "index.html", {"mensaje":f'Personal borrado con exito', "url":avatar.Avatar.url, "banner":avatar.banner.url})
+        return render(request, "index.html", {"mensaje":f'Personal borrado con éxito', "url":avatar.Avatar.url, "banner":avatar.banner.url})
     else:
         avatar = Perfil.objects.get(pk=request.user.pk)
         return render(request, "Borrar_PersonalCC.html",{"url": avatar.Avatar.url, "banner":avatar.banner.url})
@@ -648,7 +648,7 @@ def Listar_PersonalDXTV(request):
     page = request.GET.get  ('page', 1)
     
     try:
-        paginator=Paginator(personalDXTV, 8)
+        paginator=Paginator(personalDXTV, 5)
         personalDXTV =paginator.page(page)
         
     except:

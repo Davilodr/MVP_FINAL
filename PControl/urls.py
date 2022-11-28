@@ -1,5 +1,6 @@
 
 from django.urls import path
+from Mensage.views import Crear_sugerencia, lista_sugerencia, ver_sugerencia
 
 from Users.views import Cargar_personal_logout, Home, Sobre_Mi
 
@@ -15,18 +16,20 @@ from .views import (About,
                     BuscarD,
                     BuscarP, 
                     Cargar_Personal,
-                    
                     Crear_Datos,
                     Crear_User_PersonalCC,
                     Crear_User_PersonalDXTV,
-                    Crear_User_Supervisor, Facebook, Github, Gmail,
-                    
+                    Crear_User_Supervisor,
+                    Facebook,
+                    Github,
+                    Gmail,
                     Index,
                     Listar_Personal,
                     Listar_PersonalCC,
                     Listar_PersonalDXTV,
                     Listar_dias,
-                    Listar_horas, Telegram,
+                    Listar_horas, 
+                    Telegram,
                     Ver_PersonalCC,
                     Ver_PersonalDXTV,
                     crear_dias,
@@ -36,7 +39,8 @@ from .views import (About,
                     editar_dias,
                     editar_horas,
                     filtrarD,
-                    filtrarH, linkedin)
+                    filtrarH, 
+                    linkedin)
 
 urlpatterns =[
     path('', Home, name="Home"),
@@ -80,4 +84,7 @@ urlpatterns =[
     path('Github', Github, name="Github"),
     path('Linkedin', linkedin, name="Linkedin"),
     path('Telegram', Telegram, name="Telegram"),
+    path('Sugerencia', Crear_sugerencia, name="Sugerencias"),
+    path('Lista_sugerencia', lista_sugerencia, name="ListaSug"),
+    path('Ver_Sugerencias/<int:id>', ver_sugerencia, name="VerSugerencia"),
 ]

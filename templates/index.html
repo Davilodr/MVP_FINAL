@@ -10,6 +10,7 @@
         <link href="{% static 'css/stylesnew.css' %}" rel="stylesheet"/>
         
         
+        
         {% block head %}
             
         {% endblock head %}
@@ -87,20 +88,48 @@
                 <div class="bc-main">
                     
                     {% block contenidoQueCambia %}
-                    <div class="d-main">
-                        <h2>Esta Aplicación fue diseñada para automatizar el Control de días y horas.</h2>
-                    </div>
-                    <div>
-                        <p class="p-main">Aquí podrá cargar tanto sus días como horas trabajadas según le interese. Agregar a una base de datos SQL los mismos para poder registrarla, verla cuando así lo necesite. Esto viene a mejorar el flujo de información tanto para "Empleados" como "RRHH".</p>
+                    
+                        <div class="d-main">
+                            <h2>Esta aplicación fue diseñada para automatizar el control de días y horas.</h2>
+                        </div>
+                        <div>
+                            <p class="p-main">Aquí podrá cargar tanto sus días como horas trabajadas según le interese. Agregar a una base de datos SQL los mismos para poder registrarla, verla cuando así lo necesite. Esto viene a mejorar el flujo de información tanto para "Empleados" como "RRHH".</p>
                         
-                    </div>
-                    <h4 class="reg">{{mensaje}}</h4>
+                        </div>
+                        <h4 class="reg">{{mensaje}}</h4>
+                    
                     {% endblock contenidoQueCambia %}
                     
                 </div>
                 <div class="chat">
-                    <h2>chat</h2>
-                </div>
+                    {% if user.is_authenticated %}
+                        {% if request.user.supervisor or request.user.administrador %}
+                            <h2 class="su-title">Sugerencias</h2>
+                            <hr>
+                                <div class="a-msj">
+                                    <a href="{% url 'ListaSug' %}"><h3>Mensajes</h3> <br><img src="{% static 'assets/img/mensajes.png' %}" alt="Mensaje"></a>                     
+                                </div>      
+                        {% else %}
+                            
+                        
+                                 
+                            <h2 class="su-title">Sugerencias</h2>
+                            <hr>
+    
+                            <form class="su-form" action="{% url 'Sugerencias' %}" method="POST">{% csrf_token %}
+                            Nombre:
+                            <br>
+                            <input type="text" name="nombre" placeholder="Escriba su nombre">
+                            <br>
+                            Texto
+                            <textarea name="texto" rows="4" cols="40" placeholder="Escriba su sugerencia aquí"></textarea>
+                            <input class="act" type="submit" value="Enviar"/>
+                            </form>
+                         
+                        {% endif %}
+                        
+                    {% endif %}
+                    </div>
             </main>     
                 
             <footer class="footer" id="grid-4">

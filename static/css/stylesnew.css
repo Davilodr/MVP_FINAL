@@ -59,6 +59,7 @@ label{
     color: orange;
 }
 .cp:hover{
+    
     border-bottom: 5px solid rgb(78, 78, 78);
     background-color: rgb(45, 45, 45);
     border-style: groove;
@@ -354,7 +355,8 @@ a.log:hover{
     margin-top: 150px; 
 }
 .c-per{
-    display: inline-block;
+    align-items: stretch;
+    flex-direction: column-reverse;
     margin-top: 150px; 
 }
 .l-per{
@@ -469,4 +471,20 @@ a.log:hover{
 
 .cont-btn-RLO{
     margin-right:50px;
+}
+
+.su-title{
+    text-align: center;
+    color:rgb(197, 86, 1) ;
+}
+
+.su-form{
+    text-align: center;
+    color:rgb(197, 86, 1);
+    margin-top:10%;
+    font-size: 20px;
+}
+
+.a-msj{
+    margin-left: 40%;
 }

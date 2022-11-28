@@ -15,13 +15,13 @@
         {% if perms.PControl.add_personaldxtv or request.user.personaldxtv%}
         <div>
             <button class="cpd"><a href="{% url 'ListaPersonalDXTV' %}"><img src="{% static 'assets/img/editar.ico' %}" alt=""> - Personal DXTV</a></button>
-            <p> -Lista Personal DXTV</p>
+            <br>
         </div>
         {% endif %}
         {% if perms.PControl.add_personalcc or request.user.personalcc %}
         <div>
             <button class="cpc"><a href="{% url 'ListaPersonalCC' %}"><img src="{% static 'assets/img/editar.ico' %}" alt=""> - Personal CC</a></button>
-            <p> -Lista Personal Control Central</p>
+            <br>
         </div>
         {% endif %}
    </div>

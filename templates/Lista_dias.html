@@ -15,12 +15,12 @@
                 {% endif %}
 
                 <span class="current">
-                    pagina {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.
+                    Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.
                 </span>
 
                 {% if page_obj.has_next %}
                     <a href="?page={{ page_obj.next_page_number }}">Siguiente</a>
-                    <a href="?page={{ page_obj.paginator.num_pages }}">Ultima &raquo;</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}">Última &raquo;</a>
                 {% endif %}
     
   </ul>

@@ -81,7 +81,7 @@ def rigistrarse(request):
             
             Formularioregistro.save()
                         
-            return render(request, "index.html", {"mensaje": f'Usuario {username} creado con exito'})     
+            return render(request, "index.html", {"mensaje": f'Usuario {username} creado con éxito'})     
         else:
             return render(request, "index.html",{"mensaje": f'Error, al crear el usuario'})
     else:
@@ -174,7 +174,7 @@ def Crear_User_Admin(request):
             Personal.save()
             user.groups.add(Super)
             avatar = Perfil.objects.get(pk=request.user.pk)
-            return render(request, "index.html", {"mensaje": f'Perfil creado con exito',"url": avatar.Avatar.url, "banner":avatar.banner.url})
+            return render(request, "index.html", {"mensaje": f'Perfil creado con éxito',"url": avatar.Avatar.url, "banner":avatar.banner.url})
         else:
             avatar = Perfil.objects.get(pk=request.user.pk)
             return render(request, "index.html",{"mensaje": f'Error, formulario invalido',"url": avatar.Avatar.url, "banner":avatar.banner.url})

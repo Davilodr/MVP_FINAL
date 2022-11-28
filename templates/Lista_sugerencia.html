@@ -1,0 +1,50 @@
+{% extends 'index.html' %}
+
+
+{% load static %}
+{% block title %}Lista Sugerencias{% endblock title %}
+{% block head %}
+<link href="{% static 'css/stylestableS.css' %}" rel="stylesheet"/>          
+{% endblock head %}
+
+{% block contenidoQueCambia %}
+    <nav class="nav-pager">
+        <ul class="pager">
+                {% if page_obj.has_previous %}
+                    <a href="?page=1">&laquo; Primera</a>
+                    <a href="?page={{ page_obj.previous_page_number }}">Anterior</a>
+                {% endif %}
+
+                <span class="current">
+                    Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}.
+                </span>
+
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">Siguiente</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}">Última &raquo;</a>
+                {% endif %}
+    
+        </ul>
+    </nav>
+     <table class="table caption-top">
+        <caption></caption>
+        <thead>
+            <tr class="col-h">
+                <th scope="col">Nombre</th>
+                <th scope="col">Mensaje</th>
+            </tr>
+        </thead>
+        {% for msj in msjs %}
+        <tbody> 
+            <tr class="fil-d">
+                <td scope="row">{{msj.nombre}}</td>
+                <td><button class ="ed">
+                        <a class = "lisD" href="{% url 'VerSugerencia' msj.id %}"><img src="{% static 'assets/img/detalle.png' %}" alt="Detalle"></a>
+                    </button>
+                </td>
+        </tr>        
+        </tbody>
+        {% endfor %}
+    </table> 
+    
+{% endblock contenidoQueCambia %}
