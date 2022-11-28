@@ -333,10 +333,11 @@ def Crear_User_Supervisor(request):
             user.save()
             Personal.save()
             user.groups.add(Super)
-            
-            return render(request, "index.html", {"mensaje": f'Perfil creado con éxito'})
+            avatar = Perfil.objects.get(pk=request.user.pk)
+            return render(request, "index.html", {"mensaje": f'Perfil creado con éxito', "url": avatar.Avatar.url, "banner":avatar.banner.url})
         else:
-            return render(request, "index.html",{"mensaje": f'Error, formulario invalido'})
+            avatar = Perfil.objects.get(pk=request.user.pk)
+            return render(request, "index.html",{"mensaje": f'Error, formulario invalido', "url": avatar.Avatar.url, "banner":avatar.banner.url})
     else:
 
         PersonalForm = PersonalFormulario()
