@@ -117,10 +117,7 @@
                             <hr>
     
                             <form class="su-form" action="{% url 'Sugerencias' %}" method="POST">{% csrf_token %}
-                            Nombre:
-                            <br>
-                            <input type="text" name="nombre" placeholder="Escriba su nombre">
-                            <br>
+                           
                             Texto
                             <textarea name="texto" rows="4" cols="40" placeholder="Escriba su sugerencia aquí"></textarea>
                             <input class="act" type="submit" value="Enviar"/>

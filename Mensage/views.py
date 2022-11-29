@@ -1,5 +1,6 @@
 
 from django.shortcuts import render
+from PControl.models import PersonalCC, PersonalDXTV
 from Users.models import Perfil
 from Mensage.models import Sugerencia
 
@@ -11,23 +12,17 @@ from django.core.paginator import Paginator
 def Crear_sugerencia(request):
     
     if request.method == 'POST':
-        
-        nombre = Perfil.objects.get(username = request.user)
-        
-        
-        if nombre == request.user:
-            
             
             info= request.POST
             
-            if nombre == info['nombre']:
+            
+            if info:
                 
                 if info['texto']:
                 
-                    form={"nombre":info['nombre'],
-                    "mensaje":info['texto']}
+                    form={"mensaje":info['texto']}
                 
-                    data= Sugerencia(nombre = form['nombre'], mensaje = form['mensaje'], mensaje_id=request.user)
+                    data= Sugerencia(mensaje = form['mensaje'], nombre=request.user, mensaje_id=request.user)
                 
                     data.save()
                     avatar = Perfil.objects.get(pk=request.user.pk)
@@ -36,12 +31,8 @@ def Crear_sugerencia(request):
                     avatar = Perfil.objects.get(pk=request.user.pk)
                     return render(request, "index.html",{"mensaje":f'Debe ingresar Sugerencia', "url": avatar.Avatar.url, "banner":avatar.banner.url})
             
-            else:
-                avatar = Perfil.objects.get(pk=request.user.pk)
-                return render(request, "index.html",{"mensaje":f'Nombre de usuario no valido', "url": avatar.Avatar.url, "banner":avatar.banner.url})
-        else:
-            avatar = Perfil.objects.get(pk=request.user.pk)
-            return render(request, "index.html",{"mensaje":f'Debe ingresar su nombre de usuario', "url": avatar.Avatar.url, "banner":avatar.banner.url})
+    
+       
     
     
 def lista_sugerencia(request):
